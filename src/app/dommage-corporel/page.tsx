@@ -6,8 +6,9 @@ import { getFAQByPage } from '@/lib/queries';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 
 export const metadata: Metadata = {
-  title: 'Dommage Corporel • Expertise en Indemnisation des Victimes',
-  description: 'Avocat en dommage corporel : accidents de la route (Loi Badinter), accidents médicaux (CCI/ONIAM), agressions (CIVI), accidents de la vie. Expertise complète.',
+  title: 'Avocat Dommage Corporel Bayonne • Expert Indemnisation Victimes Accident',
+  description: 'Avocat expert en dommage corporel à Bayonne : accidents de la route (Loi Badinter), accidents médicaux (CCI/ONIAM), agressions (CIVI). Cabinet au Pays Basque. +10 ans d\'expérience. Consultation sur rendez-vous.',
+  keywords: ['avocat dommage corporel Bayonne', 'expert indemnisation Bayonne', 'accident route Bayonne', 'Loi Badinter Bayonne', 'CCI ONIAM Bayonne', 'CIVI Bayonne', 'préjudice corporel Bayonne'],
 };
 
 export default async function DommageCorporelPage() {
@@ -46,11 +47,11 @@ export default async function DommageCorporelPage() {
         <div className="container-custom">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-playfair font-bold text-noir mb-6">
-              Dommage Corporel
+              Avocat Dommage Corporel Bayonne
             </h1>
             <p className="text-xl text-anthracite mb-8 leading-relaxed">
-              Expertise juridique en indemnisation des victimes d'accidents. 
-              Une approche personnalisée pour chaque situation, quel que soit l'origine de vos préjudices.
+              <strong>Cabinet d'avocat spécialisé en dommage corporel à Bayonne</strong>. Expert en indemnisation des victimes d'accidents de la route, accidents médicaux, agressions.
+              Une approche personnalisée pour chaque situation au Pays Basque.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className="btn-primary">

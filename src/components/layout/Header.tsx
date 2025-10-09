@@ -74,7 +74,7 @@ export default function Header() {
             />
             <div className="block">
               <h1 className="text-sm sm:text-lg font-semibold text-gray-900 leading-tight">Maître Laura Baron</h1>
-              <p className="text-xs text-gray-600 leading-tight">Avocate - Dommage corporel</p>
+              <p className="text-xs text-gray-600 leading-tight">Avocat Dommage Corporel Bayonne</p>
             </div>
           </Link>
 
@@ -170,7 +170,7 @@ export default function Header() {
                   />
                   <div>
                     <h1 className="text-sm font-semibold text-gray-900">Maître Laura Baron</h1>
-                    <p className="text-xs text-gray-600">Avocate - Dommage corporel</p>
+                    <p className="text-xs text-gray-600">Avocat Dommage Corporel Bayonne</p>
                   </div>
                 </div>
                 <button

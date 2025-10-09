@@ -152,9 +152,14 @@ export default function ContactPage() {
                   </a>
                 </div>
                 
-                <div className="flex items-center space-x-3">
-                  <Clock size={20} className="text-or flex-shrink-0" />
-                  <span className="text-anthracite">Sur rendez-vous uniquement</span>
+                <div className="flex items-start space-x-3">
+                  <Clock size={20} className="text-or mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="text-anthracite">Lundi - Jeudi : 9h - 18h</p>
+                    <p className="text-anthracite">Vendredi : 9h - 17h</p>
+                    <p className="text-gray-600 text-sm">Samedi - Dimanche : Fermé</p>
+                    <p className="text-gray-600 text-sm">Sur rendez-vous uniquement</p>
+                  </div>
                 </div>
               </div>
               

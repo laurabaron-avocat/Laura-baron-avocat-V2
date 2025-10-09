@@ -99,19 +99,19 @@ export default async function HomePage() {
               <div>
                 {/* Version Mobile du titre */}
                 <h1 className="md:hidden text-3xl font-playfair font-bold text-center mb-6 hero-claim leading-tight">
-                  <span className="block text-noir mb-3 text-4xl">Défendre vos droits</span>
-                  <span className="block text-anthracite text-2xl mb-3">après un accident,</span>
-                  <span className="block text-or text-3xl font-semibold bg-gradient-to-r from-or to-yellow-600 bg-clip-text text-transparent">notre expertise à votre service</span>
+                  <span className="block text-noir mb-3 text-4xl">Avocat Dommage Corporel</span>
+                  <span className="block text-anthracite text-2xl mb-3">à Bayonne</span>
+                  <span className="block text-or text-3xl font-semibold bg-gradient-to-r from-or to-yellow-600 bg-clip-text text-transparent">Expert Indemnisation Accident</span>
                 </h1>
 
                 {/* Version Desktop du titre */}
                 <h1 className="hidden md:block mobile-title font-playfair font-bold text-noir mb-4 md:mb-6 hero-claim leading-tight">
-                  Défendre vos droits après un accident,
-                  <span className="text-or block mt-2">notre expertise à votre service</span>
+                  Avocat Dommage Corporel à Bayonne
+                  <span className="text-or block mt-2">Expert en Indemnisation des Victimes d'Accident</span>
                 </h1>
                 <p className="mobile-subtitle text-anthracite mb-6 md:mb-8 leading-relaxed">
-                  Avocate en <strong>dommage corporel</strong> et indemnisation des victimes.
-                  Plus de 10 ans d'expérience pour obtenir la juste réparation de vos préjudices.
+                  <strong>Avocate et avocat en dommage corporel à Bayonne</strong> : indemnisation des victimes d'accidents de la route, accidents médicaux, agressions.
+                  Plus de 10 ans d'expérience au Pays Basque pour obtenir la juste réparation de vos préjudices.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 md:mb-8">
                   <Link href="tel:+33750234606" className="btn-primary inline-flex items-center justify-center">
@@ -132,7 +132,7 @@ export default async function HomePage() {
             <div className="text-center">
               <img
                 src="https://qncljsxdjefkimfxdzuf.supabase.co/storage/v1/object/public/images/Maitre-Laura-Baron-Avocat-barreau-bayonne-specialiste-dommage-corporelle-accident-de-la-route.jpg"
-                alt="Maître Laura Baron - Avocat en dommage corporel"
+                alt="Maître Laura Baron - Avocat et avocate expert en dommage corporel à Bayonne, spécialisée indemnisation accidents de la route, accidents médicaux, agressions"
                 className="w-full h-80 md:h-[500px] object-contain md:object-cover rounded-lg shadow-lg md:object-[center_10%] hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
               />
               <div className="mt-4 md:mt-6">
@@ -143,6 +143,39 @@ export default async function HomePage() {
                   Avocate en dommage corporel
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section SEO - Contenu riche */}
+      <section className="section-padding bg-white">
+        <div className="container-custom no-overflow">
+          <div className="max-w-4xl mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-playfair font-bold text-noir mb-6 text-center">
+              Avocat en Dommage Corporel à Bayonne : Expert en Indemnisation
+            </h2>
+            <div className="space-y-4 text-gray-700 leading-relaxed">
+              <p>
+                <strong>Maître Laura Baron, avocat en dommage corporel à Bayonne</strong>, vous accompagne depuis plus de 10 ans dans toutes vos démarches d'indemnisation.
+                En tant qu'<strong>avocate experte en préjudices corporels au Barreau de Bayonne</strong>, je défends les victimes d'accidents de la route,
+                d'erreurs médicales, d'agressions et d'accidents de la vie courante dans tout le <strong>Pays Basque</strong> (Bayonne, Anglet, Biarritz).
+              </p>
+              <h3 className="text-xl md:text-2xl font-playfair font-semibold text-anthracite mt-6 mb-4">
+                Pourquoi choisir un avocat spécialisé en dommage corporel à Bayonne ?
+              </h3>
+              <p>
+                Le <strong>droit du dommage corporel à Bayonne</strong> requiert une expertise pointue et une connaissance approfondie des procédures d'indemnisation.
+                En tant qu'<strong>avocat en réparation du préjudice corporel</strong>, je maîtrise parfaitement la <strong>Loi Badinter</strong>,
+                les procédures <strong>CIVI</strong>, <strong>CCI</strong> et <strong>ONIAM</strong>. Mon cabinet d'avocat à Bayonne est reconnu pour son expertise
+                et son engagement dans la défense des victimes d'accidents.
+              </p>
+              <p>
+                Que vous soyez victime d'un <strong>accident de la route à Bayonne</strong>, d'un accident médical ou d'une agression,
+                mon rôle d'<strong>avocat spécialisé en indemnisation</strong> est de vous obtenir la juste réparation de vos préjudices.
+                Je travaille avec des <strong>médecins-conseils experts</strong> pour évaluer précisément vos séquelles et chiffrer l'ensemble de vos préjudices
+                selon la nomenclature Dintilhac.
+              </p>
             </div>
           </div>
         </div>
