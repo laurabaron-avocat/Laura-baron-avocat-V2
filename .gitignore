@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Environment variables
+.env.local
+.env*.local
+
+# Temporary files
+*.log
+.DS_Store
+
+# Scripts and debug files
+scripts/
+*.sql

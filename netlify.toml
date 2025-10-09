@@ -1,0 +1,58 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "18"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+# Plugin Netlify pour Next.js avec support ISR et Realtime
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-XSS-Protection = "1; mode=block"
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    cache-control = "no-cache, no-store, must-revalidate"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    cache-control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    cache-control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.woff2"
+  [headers.values]
+    cache-control = "public, max-age=31536000, immutable"
+
+
+# Redirect old URLs (examples)
+[[redirects]]
+  from = "/avocat-bayonne"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/avocat-toulouse"
+  to = "/"
+  status = 301
+
+# Handle SPA fallback
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

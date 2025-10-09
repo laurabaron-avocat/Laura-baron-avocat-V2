@@ -1,0 +1,120 @@
+/* Article Styling - Custom CSS for prose elements that cause build issues */
+
+.article-content {
+  @apply prose prose-lg max-w-none;
+}
+
+/* Headings */
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content h4 {
+  @apply font-playfair text-anthracite;
+  scroll-margin-top: 6rem;
+}
+
+.article-content h1 {
+  @apply text-4xl mb-8 mt-12 pb-4 border-b border-beige;
+}
+
+.article-content h2 {
+  @apply text-3xl mb-6 mt-12 text-noir relative pl-6;
+}
+
+.article-content h2::before {
+  content: '';
+  @apply absolute left-0 top-0 bottom-0 w-1 bg-or rounded;
+}
+
+.article-content h3 {
+  @apply text-2xl mb-4 mt-8 text-anthracite font-semibold;
+}
+
+.article-content h4 {
+  @apply text-xl mb-3 mt-6 text-anthracite font-medium;
+}
+
+/* Typography */
+.article-content p {
+  @apply text-gray-700 leading-relaxed mb-6 text-lg;
+  hyphens: auto;
+}
+
+.article-content p:first-of-type::first-letter {
+  @apply text-5xl font-playfair font-bold text-or float-left mr-3 mt-1;
+}
+
+.article-content a {
+  @apply text-or no-underline font-medium;
+}
+
+.article-content a:hover {
+  @apply underline text-yellow-600;
+}
+
+.article-content strong {
+  @apply text-anthracite font-semibold px-1 rounded;
+  background-color: rgba(201, 178, 124, 0.1);
+}
+
+.article-content em {
+  @apply text-gray-600 italic;
+}
+
+/* Lists */
+.article-content ul,
+.article-content ol {
+  @apply text-gray-700 space-y-3;
+}
+
+.article-content li {
+  @apply mb-2 leading-relaxed relative pl-2;
+}
+
+.article-content ul > li::before {
+  content: '▸';
+  @apply text-or font-bold absolute left-0;
+}
+
+/* Blockquotes */
+.article-content blockquote {
+  @apply border-l-4 border-or py-6 px-8 rounded-r-lg italic relative shadow-sm;
+  background: linear-gradient(to right, rgba(233, 228, 220, 0.6), rgba(233, 228, 220, 0.2));
+}
+
+.article-content blockquote::before {
+  content: '"';
+  @apply text-6xl text-or absolute top-2 left-2 font-playfair;
+}
+
+/* Images */
+.article-content img {
+  @apply rounded-xl shadow-xl my-12 border border-gray-200;
+}
+
+/* Tables */
+.article-content table {
+  @apply border-collapse border border-gray-300 rounded-lg overflow-hidden;
+}
+
+.article-content th {
+  @apply bg-beige text-anthracite font-semibold p-4 border border-gray-300;
+}
+
+.article-content td {
+  @apply p-4 border border-gray-300 bg-white;
+}
+
+/* Code */
+.article-content code {
+  @apply px-2 py-1 rounded font-mono text-sm text-anthracite;
+  background-color: rgba(233, 228, 220, 0.5);
+}
+
+.article-content pre {
+  @apply bg-noir text-white p-6 rounded-lg overflow-x-auto;
+}
+
+.article-content pre code {
+  @apply bg-transparent text-white;
+}
