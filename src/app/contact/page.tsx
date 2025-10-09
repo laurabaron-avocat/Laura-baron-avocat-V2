@@ -118,7 +118,7 @@ export default function ContactPage() {
                   <h3 className="text-2xl font-playfair font-semibold text-anthracite mb-2">
                     Cabinet Bayonne
                   </h3>
-                  <p className="text-gray-600">Siège social • Barreau de Bayonne</p>
+                  <p className="text-gray-600">Barreau de Bayonne</p>
                 </div>
               </div>
               

@@ -62,22 +62,23 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Toulouse Interventions */}
+          {/* Toulouse Office */}
           <div>
             <h4 className="font-semibold mb-3 md:mb-4 flex items-center text-sm md:text-base">
               <MapPin className="w-3 h-3 md:w-4 md:h-4 mr-2 flex-shrink-0" />
-              Zone d'intervention
+              Antenne à Toulouse
             </h4>
             <div className="space-y-2 text-xs md:text-sm text-anthracite">
-              <p className="leading-relaxed font-semibold">Cabinet principal : Bayonne</p>
-              <p className="leading-relaxed">• Pays Basque (Anglet, Biarritz)</p>
-              <p className="leading-relaxed">• Nouvelle-Aquitaine</p>
-              <p className="leading-relaxed text-gray-600 italic mt-3">Interventions possibles sur Toulouse et Occitanie</p>
-              <div className="flex items-center mt-2">
+              <p className="leading-relaxed">Centre ville Toulouse<br />31000 Toulouse</p>
+              <div className="flex items-center">
                 <Phone className="w-3 h-3 md:w-4 md:h-4 mr-2 flex-shrink-0" />
                 <a href="tel:+33750234606" className="hover:text-or transition-colors">
                   07 50 23 46 06
                 </a>
+              </div>
+              <div className="flex items-center">
+                <Clock className="w-3 h-3 md:w-4 md:h-4 mr-2 flex-shrink-0" />
+                <span>Sur rendez-vous uniquement</span>
               </div>
             </div>
           </div>
