@@ -358,10 +358,45 @@ function getMockFAQ(pageKey: string) {
     'dommage-corporel': [
       {
         id: '5',
-        question: 'Qu\'est-ce que la Loi Badinter ?',
-        answer_html: '<p>La Loi Badinter de 1985 améliore l\'indemnisation des victimes d\'accidents de la circulation en instaurant un droit à indemnisation quasi-automatique pour les victimes non conductrices.</p>',
+        question: 'Qu\'est-ce que la Loi Badinter et qui protège-t-elle ?',
+        answer_html: '<p>La <strong>Loi Badinter de 1985</strong> révolutionne l\'indemnisation des victimes d\'accidents de la circulation en instaurant un droit à indemnisation quasi-automatique. Elle protège particulièrement les <strong>piétons, cyclistes, passagers et conducteurs</strong> (sauf en cas de faute inexcusable). Cette loi garantit une indemnisation rapide et complète de tous vos préjudices par l\'assurance du véhicule impliqué, même si vous n\'êtes pas responsable.</p>',
         page_key: 'dommage-corporel',
         order_num: 1,
+      },
+      {
+        id: '6',
+        question: 'Quelle est la différence entre CCI et ONIAM pour les accidents médicaux ?',
+        answer_html: '<p>La <strong>CCI (Commission de Conciliation et d\'Indemnisation)</strong> est une procédure amiable qui permet d\'obtenir une indemnisation en cas d\'accident médical sans passer par les tribunaux. L\'<strong>ONIAM (Office National d\'Indemnisation des Accidents Médicaux)</strong> intervient lorsque la responsabilité du professionnel de santé n\'est pas engagée ou en cas d\'aléa thérapeutique. Ces deux procédures offrent une alternative rapide et efficace au contentieux judiciaire pour les victimes d\'erreurs médicales ou d\'infections nosocomiales.</p>',
+        page_key: 'dommage-corporel',
+        order_num: 2,
+      },
+      {
+        id: '7',
+        question: 'Qu\'est-ce que la CIVI et dans quels cas puis-je en bénéficier ?',
+        answer_html: '<p>La <strong>CIVI (Commission d\'Indemnisation des Victimes d\'Infractions)</strong> est un dispositif de solidarité nationale qui indemnise les victimes d\'infractions pénales. Vous pouvez en bénéficier si vous avez été victime d\'<strong>agression physique ou sexuelle, vol avec violence, attentat, ou violences conjugales</strong>. La CIVI garantit une indemnisation même lorsque l\'auteur est insolvable, introuvable ou non identifié. Le délai pour déposer votre demande est d\'<strong>1 an à compter des faits</strong>.</p>',
+        page_key: 'dommage-corporel',
+        order_num: 3,
+      },
+      {
+        id: '8',
+        question: 'Quels sont les préjudices patrimoniaux et extrapatrimoniaux ?',
+        answer_html: '<p>Les <strong>préjudices patrimoniaux</strong> sont vos pertes économiques chiffrables : perte de revenus (ITT, IPP), frais médicaux actuels et futurs, frais d\'adaptation du logement et du véhicule, assistance par tierce personne. Les <strong>préjudices extrapatrimoniaux</strong> concernent vos atteintes personnelles : souffrances endurées, préjudice esthétique, préjudice d\'agrément, préjudice sexuel, préjudice d\'établissement. La nomenclature Dintilhac permet de chiffrer précisément chaque poste de préjudice pour obtenir une indemnisation complète.</p>',
+        page_key: 'dommage-corporel',
+        order_num: 4,
+      },
+      {
+        id: '9',
+        question: 'Combien de temps faut-il pour obtenir une indemnisation ?',
+        answer_html: '<p>Les délais d\'indemnisation varient selon le type de procédure. Pour un <strong>accident de la route</strong>, l\'offre d\'indemnisation doit intervenir dans les <strong>8 mois</strong> après consolidation. Pour les <strong>accidents médicaux (CCI/ONIAM)</strong>, comptez entre <strong>6 et 18 mois</strong>. Pour une <strong>demande CIVI</strong>, le délai est généralement de <strong>12 à 18 mois</strong>. Notre rôle est d\'accélérer ces procédures et de vous obtenir des provisions sur indemnisation dès que possible pour couvrir vos besoins urgents.</p>',
+        page_key: 'dommage-corporel',
+        order_num: 5,
+      },
+      {
+        id: '10',
+        question: 'Ai-je besoin d\'un avocat pour être indemnisé ?',
+        answer_html: '<p>Bien que ce ne soit pas légalement obligatoire, <strong>faire appel à un avocat spécialisé en dommage corporel est fortement recommandé</strong>. Les études montrent que les victimes accompagnées par un avocat obtiennent en moyenne <strong>2 à 3 fois plus d\'indemnisation</strong> que celles qui négocient seules. Un avocat expert connaît tous les postes de préjudices indemnisables, maîtrise les techniques de négociation avec les assureurs et peut vous faire accompagner par un médecin-conseil lors de l\'expertise médicale pour défendre vos intérêts.</p>',
+        page_key: 'dommage-corporel',
+        order_num: 6,
       },
     ],
     indemnisation: [
