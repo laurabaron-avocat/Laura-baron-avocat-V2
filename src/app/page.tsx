@@ -110,8 +110,8 @@ export default async function HomePage() {
                   <span className="text-or block mt-2">Expert en Indemnisation des Victimes d'Accident</span>
                 </h1>
                 <p className="mobile-subtitle text-anthracite mb-6 md:mb-8 leading-relaxed">
-                  <strong>Avocate et avocat en dommage corporel à Bayonne</strong> : indemnisation des victimes d'accidents de la route, accidents médicaux, agressions.
-                  Plus de 10 ans d'expérience au Pays Basque pour obtenir la juste réparation de vos préjudices.
+                  <strong>Avocate en dommage corporel à Bayonne</strong> : indemnisation des victimes d'accidents de la route, accidents médicaux, agressions.
+                  Plus de 10 ans d'expérience au Pays Basque pour obtenir la meilleure réparation de vos préjudices.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 md:mb-8">
                   <Link href="tel:+33750234606" className="btn-primary inline-flex items-center justify-center">
@@ -172,7 +172,7 @@ export default async function HomePage() {
               </p>
               <p>
                 Que vous soyez victime d'un <strong>accident de la route à Bayonne</strong>, d'un accident médical ou d'une agression,
-                mon rôle d'<strong>avocat spécialisé en indemnisation</strong> est de vous obtenir la juste réparation de vos préjudices.
+                mon rôle d'<strong>avocat en indemnisation</strong> est de vous obtenir la meilleure réparation de vos préjudices.
                 Je travaille avec des <strong>médecins-conseils experts</strong> pour évaluer précisément vos séquelles et chiffrer l'ensemble de vos préjudices
                 selon la nomenclature Dintilhac.
               </p>
