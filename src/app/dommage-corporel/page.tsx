@@ -50,7 +50,7 @@ export default async function DommageCorporelPage() {
               Avocat Dommage Corporel Bayonne
             </h1>
             <p className="text-xl text-anthracite mb-8 leading-relaxed">
-              <strong>Cabinet d'avocat spécialisé en dommage corporel à Bayonne</strong>. Expert en indemnisation des victimes d'accidents de la route, accidents médicaux, agressions.
+              <strong>Cabinet d'avocat en dommage corporel à Bayonne</strong>. Expert en indemnisation des victimes d'accidents de la route, accidents médicaux, agressions.
               Une approche personnalisée pour chaque situation au Pays Basque.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
