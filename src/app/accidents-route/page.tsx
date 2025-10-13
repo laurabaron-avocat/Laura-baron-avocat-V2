@@ -144,7 +144,7 @@ export default function AccidentsRoutePage() {
                       <h4 className="font-semibold text-orange-800">Conducteurs</h4>
                     </div>
                     <p className="text-sm text-orange-700">
-                      Indemnisation sauf faute inexcusable ayant contribué à l'accident
+                      Indemnisation possible, sauf en cas de faute de conduite ayant contribué à l'accident.
                     </p>
                   </div>
                 </div>
