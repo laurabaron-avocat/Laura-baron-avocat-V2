@@ -50,9 +50,3 @@
   from = "/avocat-toulouse"
   to = "/"
   status = 301
-
-# Handle SPA fallback
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200

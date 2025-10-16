@@ -2,8 +2,8 @@
 const nextConfig = {
   // Configuration pour Netlify avec Realtime
   // On supprime 'output: export' pour permettre le JavaScript côté client
-  trailingSlash: true,
-  skipTrailingSlashRedirect: true,
+  // Désactivation du trailingSlash pour éviter les erreurs 5xx avec Google Search Console
+  trailingSlash: false,
   images: {
     unoptimized: true,
     formats: ['image/webp', 'image/avif'],
