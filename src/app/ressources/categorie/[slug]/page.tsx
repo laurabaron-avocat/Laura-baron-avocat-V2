@@ -32,6 +32,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
+// Revalidation ISR toutes les 60 secondes
+export const revalidate = 60;
+
+// Permet de générer dynamiquement les pages non générées au build
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
   return fallbackCategories.map((category) => ({
     slug: category.slug,
