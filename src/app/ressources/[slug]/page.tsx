@@ -36,8 +36,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-// Revalidation ISR toutes les 60 secondes pour récupérer le nouveau contenu
-export const revalidate = 60;
+// Revalidation ISR toutes les 4 heures pour récupérer le nouveau contenu
+export const revalidate = 14400; // 4 heures = 14400 secondes
 
 // Permet de générer dynamiquement les pages non générées au build
 export const dynamicParams = true;

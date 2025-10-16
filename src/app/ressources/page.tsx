@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   description: 'Guides pratiques, fiches notions et actualités juridiques en dommage corporel. Ressources expertes pour comprendre vos droits et l\'indemnisation des victimes.',
 };
 
-// Revalidation toutes les 60 secondes pour récupérer le nouveau contenu
-export const revalidate = 60;
+// Revalidation toutes les 4 heures pour récupérer le nouveau contenu
+export const revalidate = 14400; // 4 heures = 14400 secondes
 
 export default async function RessourcesPage() {
   // Récupérer les données depuis Supabase
