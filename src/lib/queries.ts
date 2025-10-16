@@ -59,11 +59,16 @@ const ARTICLE_CATEGORY_MAPPING: Record<string, { category_slug: string; tags: st
   }
 };
 
+// Cache des posts pour éviter les disparitions en cas d'erreur temporaire
+let postsCache: any[] | null = null;
+let postsCacheTime: number = 0;
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+
 // Posts queries
 export async function getPosts(limit?: number) {
   if (!supabase || !isConfigured) {
-    console.log('Supabase not configured, returning mock data');
-    return [];
+    console.log('Supabase not configured, returning cached data or empty array');
+    return postsCache || [];
   }
 
   try {
@@ -96,6 +101,11 @@ export async function getPosts(limit?: number) {
 
     if (error) {
       console.error('Error fetching posts:', error);
+      // Retourner le cache si disponible au lieu d'un tableau vide
+      if (postsCache && postsCache.length > 0) {
+        console.log('Returning cached posts due to error');
+        return limit ? postsCache.slice(0, limit) : postsCache;
+      }
       return [];
     }
 
@@ -109,17 +119,31 @@ export async function getPosts(limit?: number) {
       };
     });
 
-    return enrichedData;
+    // Mettre à jour le cache uniquement si on a des données valides
+    if (enrichedData && enrichedData.length > 0) {
+      postsCache = enrichedData;
+      postsCacheTime = Date.now();
+    }
+
+    return limit ? enrichedData.slice(0, limit) : enrichedData;
   } catch (fetchError) {
     console.error('Network error fetching posts:', fetchError);
+    // Retourner le cache si disponible au lieu d'un tableau vide
+    if (postsCache && postsCache.length > 0) {
+      console.log('Returning cached posts due to network error');
+      return limit ? postsCache.slice(0, limit) : postsCache;
+    }
     return [];
   }
 }
 
+// Cache pour les posts individuels
+const postBySlugCache: Map<string, any> = new Map();
+
 export async function getPostBySlug(slug: string) {
   if (!supabase || !isConfigured) {
-    console.log('Supabase not configured, returning null');
-    return null;
+    console.log('Supabase not configured, returning cached post or null');
+    return postBySlugCache.get(slug) || null;
   }
 
   try {
@@ -148,6 +172,12 @@ export async function getPostBySlug(slug: string) {
 
     if (error) {
       console.error('Error fetching post by slug:', slug, error);
+      // Retourner le cache si disponible
+      const cachedPost = postBySlugCache.get(slug);
+      if (cachedPost) {
+        console.log('Returning cached post due to error:', slug);
+        return cachedPost;
+      }
       return null;
     }
 
@@ -159,9 +189,18 @@ export async function getPostBySlug(slug: string) {
       tags: mapping?.tags || ['dommage-corporel']
     };
 
+    // Mettre à jour le cache
+    postBySlugCache.set(slug, enrichedData);
+
     return enrichedData;
   } catch (fetchError) {
     console.error('Network error fetching post by slug:', fetchError);
+    // Retourner le cache si disponible
+    const cachedPost = postBySlugCache.get(slug);
+    if (cachedPost) {
+      console.log('Returning cached post due to network error:', slug);
+      return cachedPost;
+    }
     return null;
   }
 }
