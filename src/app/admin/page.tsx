@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { supabase } from '@/lib/supabase';
 import { useRouter } from 'next/navigation';
-import { Upload, X, Plus, Save, Edit, Trash2, Image as ImageIcon, Wand2, Loader2, Link as LinkIcon, Lock, Mail, Phone, MessageSquare, Calendar, Users, MapPin, FileText, Download } from 'lucide-react';
+import { Upload, X, Plus, Save, Edit, Trash2, Image as ImageIcon, Wand2, Loader2, Link as LinkIcon, Lock, Mail, Phone, MessageSquare, Calendar, Users, MapPin, FileText, Download, Eye } from 'lucide-react';
 import Image from 'next/image';
 
 // Types derived from your database schema
@@ -32,7 +32,8 @@ type Lead = {
     city: string | null;
     topic: string | null;
     message: string;
-    attachment_url: string | null;
+    attachment_url?: string | null; // Deprecated, keep for backward compatibility
+    attachments?: string[] | null;
     created_at: string;
 };
 
@@ -54,6 +55,64 @@ export default function AdminPage() {
     const [leads, setLeads] = useState<Lead[]>([]);
     const [loadingLeads, setLoadingLeads] = useState(false);
     const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
+    const [signedUrls, setSignedUrls] = useState<Record<string, { view: string, download: string }>>({}); // Map original URL to view/download URLs
+
+    // Generate signed URLs when selectedLead changes
+    useEffect(() => {
+        const getSignedUrls = async () => {
+            setSignedUrls({});
+
+            // Collect all URLs to sign
+            const urlsToSign: string[] = [];
+
+            if (selectedLead?.attachments && Array.isArray(selectedLead.attachments)) {
+                urlsToSign.push(...selectedLead.attachments);
+            } else if (selectedLead?.attachment_url) {
+                urlsToSign.push(selectedLead.attachment_url);
+            }
+
+            if (urlsToSign.length === 0) return;
+
+            const newSignedUrls: Record<string, { view: string, download: string }> = {};
+
+            for (const url of urlsToSign) {
+                try {
+                    let path = url;
+                    // Robust path extraction: match everything after '/documents/'
+                    const decodedUrl = decodeURIComponent(url);
+                    const match = decodedUrl.match(/\/documents\/(.+)$/);
+                    if (match && match[1]) {
+                        path = match[1];
+                    }
+
+                    if (path) {
+                        // 1. Create URL for Viewing
+                        const { data: viewData } = await supabase.storage
+                            .from('documents')
+                            .createSignedUrl(path, 3600);
+
+                        // 2. Create URL explicitly for Downloading
+                        const { data: downloadData } = await supabase.storage
+                            .from('documents')
+                            .createSignedUrl(path, 3600, {
+                                download: true // Force download
+                            });
+
+                        newSignedUrls[url] = {
+                            view: viewData?.signedUrl || url,
+                            download: downloadData?.signedUrl || url
+                        };
+                    }
+                } catch (e) {
+                    console.error("Error signing URL:", e);
+                    newSignedUrls[url] = { view: url, download: url };
+                }
+            }
+            setSignedUrls(newSignedUrls);
+        };
+
+        getSignedUrls();
+    }, [selectedLead]);
 
     // Check active session on load
     useEffect(() => {
@@ -128,7 +187,7 @@ export default function AdminPage() {
 
         try {
             console.log("Récupération des articles...");
-            // On essaie de récupérer tous les posts. 
+            // On essaie de récupérer tous les posts.
             // Si la RLS (Row Level Security) est activée sur 'select' pour public, ça marchera.
             const { data, error } = await supabase
                 .from('posts')
@@ -260,7 +319,7 @@ export default function AdminPage() {
                         {
                             role: 'system',
                             content: `Tu es un expert en SEO et un avocat spécialisé en dommage corporel. Rédige un article de blog complet, structuré (h2, h3, p) et optimisé pour le référencement sur le sujet donné.
-              
+
               règles:
               1. Utilise le formatage HTML directement (pas de markdown).
               2. Ton : Professionnel, empathique, expert.
@@ -268,7 +327,7 @@ export default function AdminPage() {
               4. Mots-clés : dommage corporel, avocat, indemnisation, Bayonne, victime.
               5. Longueur : environ 800-1000 mots.
               6. Génère aussi un "seo_title" (max 60 caractères), une "seo_description" (max 160 caractères) et un "excerpt" (résumé court) et un "slug".
-              
+
               Réponds UNIQUEMENT avec un objet JSON valide contenant les champs: content_html, seo_title, seo_description, excerpt, slug.`
                         },
                         {
@@ -567,9 +626,14 @@ export default function AdminPage() {
                                                         </div>
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap text-center">
-                                                        {lead.attachment_url ? (
-                                                            <div title="Pièce jointe disponible">
-                                                                <FileText className="w-5 h-5 text-indigo-600 mx-auto" />
+                                                        {(lead.attachments && lead.attachments.length > 0) || lead.attachment_url ? (
+                                                            <div title="Pièces jointes disponibles" className="flex items-center justify-center gap-1">
+                                                                <FileText className="w-5 h-5 text-indigo-600" />
+                                                                {(lead.attachments?.length || 0) > 1 && (
+                                                                    <span className="text-xs font-semibold bg-indigo-100 text-indigo-800 rounded-full w-5 h-5 flex items-center justify-center">
+                                                                        {lead.attachments?.length}
+                                                                    </span>
+                                                                )}
                                                             </div>
                                                         ) : (
                                                             <span className="text-gray-300">-</span>
@@ -929,21 +993,59 @@ export default function AdminPage() {
                             </div>
 
                             {/* Attachment Card */}
-                            {selectedLead.attachment_url && (
+                            {((selectedLead.attachments && selectedLead.attachments.length > 0) || selectedLead.attachment_url) && (
                                 <div className="bg-indigo-50 p-6 rounded-lg border border-indigo-200">
-                                    <div className="flex items-center gap-2 text-indigo-700 mb-3">
+                                    <div className="flex items-center gap-2 text-indigo-700 mb-4">
                                         <FileText className="w-5 h-5" />
-                                        <span className="text-sm font-semibold uppercase tracking-wide">Pièce jointe</span>
+                                        <span className="text-sm font-semibold uppercase tracking-wide">
+                                            Pièces jointes ({(selectedLead.attachments?.length || (selectedLead.attachment_url ? 1 : 0))})
+                                        </span>
                                     </div>
-                                    <a
-                                        href={selectedLead.attachment_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 font-medium"
-                                    >
-                                        <Download className="w-4 h-4" />
-                                        Télécharger le document
-                                    </a>
+
+                                    <div className="space-y-3">
+                                        {/* Handle both new array format and old single string format */}
+                                        {(selectedLead.attachments || (selectedLead.attachment_url ? [selectedLead.attachment_url] : [])).map((url, index) => {
+                                            const fileName = url.split('/').pop()?.split('-').slice(1).join('-') || `Document ${index + 1}`;
+                                            const links = signedUrls[url] || { view: url, download: url };
+
+                                            // Determine file type icon
+                                            const isImage = /\.(jpg|jpeg|png|webp|gif)$/i.test(fileName);
+                                            const isPdf = /\.pdf$/i.test(fileName);
+
+                                            return (
+                                                <div key={index} className="flex items-center justify-between bg-white p-3 rounded border border-indigo-100 hover:shadow-sm transition-shadow">
+                                                    <div className="flex items-center gap-3 overflow-hidden">
+                                                        <div className="bg-indigo-100 p-2 rounded text-indigo-600">
+                                                            {isImage ? <ImageIcon className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
+                                                        </div>
+                                                        <span className="text-sm font-medium text-gray-700 truncate max-w-[200px]" title={fileName}>
+                                                            {fileName}
+                                                        </span>
+                                                    </div>
+
+                                                    <div className="flex items-center gap-2">
+                                                        <a
+                                                            href={links.view}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="p-2 text-gray-500 hover:text-indigo-600 hover:bg-indigo-50 rounded transition-colors"
+                                                            title="Visualiser"
+                                                        >
+                                                            <Eye className="w-4 h-4" />
+                                                        </a>
+                                                        <a
+                                                            href={links.download}
+                                                            download
+                                                            className="p-2 text-gray-500 hover:text-green-600 hover:bg-green-50 rounded transition-colors"
+                                                            title="Télécharger"
+                                                        >
+                                                            <Download className="w-4 h-4" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
                                 </div>
                             )}
 

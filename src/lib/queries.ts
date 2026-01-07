@@ -314,31 +314,36 @@ export async function submitContactForm(formData: {
   }
 
   try {
-    let attachmentUrl: string | null = null;
+    let attachments: string[] = [];
 
     // Upload files if provided
     if (files && files.length > 0) {
-      const file = files[0]; // Take only the first file for now
-      const fileExt = file.name.split('.').pop();
-      const fileName = `${Date.now()}-${formData.firstName}-${formData.lastName}.${fileExt}`;
-      const filePath = `leads/${fileName}`;
+      for (const file of files) {
+        const fileExt = file.name.split('.').pop();
+        // Sanitize names for filename
+        const safeFirstName = formData.firstName.replace(/[^a-z0-9]/gi, '-').toLowerCase();
+        const safeLastName = formData.lastName.replace(/[^a-z0-9]/gi, '-').toLowerCase();
+        const fileName = `${Date.now()}-${safeFirstName}-${safeLastName}-${Math.random().toString(36).substring(7)}.${fileExt}`;
+        const filePath = `leads/${fileName}`;
 
-      const { data: uploadData, error: uploadError } = await supabase.storage
-        .from('documents')
-        .upload(filePath, file, {
-          cacheControl: '3600',
-          upsert: false
-        });
-
-      if (uploadError) {
-        console.error('Error uploading file:', uploadError);
-      } else {
-        // Get public URL
-        const { data: { publicUrl } } = supabase.storage
+        const { data: uploadData, error: uploadError } = await supabase.storage
           .from('documents')
-          .getPublicUrl(filePath);
+          .upload(filePath, file, {
+            cacheControl: '3600',
+            upsert: false,
+            contentType: file.type // Crucial for correct PDF handling
+          });
 
-        attachmentUrl = publicUrl;
+        if (uploadError) {
+          console.error('Error uploading file:', uploadError);
+        } else {
+          // Get public URL
+          const { data: { publicUrl } } = supabase.storage
+            .from('documents')
+            .getPublicUrl(filePath);
+
+          attachments.push(publicUrl);
+        }
       }
     }
 
@@ -352,7 +357,7 @@ export async function submitContactForm(formData: {
         city: formData.city || null,
         topic: formData.topic,
         message: formData.message,
-        attachment_url: attachmentUrl,
+        attachments: attachments, // Using the new JSONB column
       }]);
 
     if (error) {
