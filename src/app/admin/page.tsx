@@ -474,12 +474,12 @@ export default function AdminPage() {
         <div className="min-h-screen bg-gray-50 pb-20">
             {/* Header Admin */}
             <header className="bg-white shadow-sm border-b sticky top-0 z-10">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex justify-between items-center">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-auto md:h-16 py-4 md:py-0 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <h1 className="text-xl font-bold font-playfair text-noir flex items-center gap-2">
                         <Lock className="w-5 h-5 text-or" />
                         Admin Panel
                     </h1>
-                    <div className="flex items-center gap-4">
+                    <div className="w-full md:w-auto flex flex-col md:flex-row items-stretch md:items-center gap-4">
                         <input
                             type="password"
                             placeholder="Clé OpenRouter (pour IA)"
@@ -498,8 +498,8 @@ export default function AdminPage() {
             </header>
 
             {/* Tabs Navigation */}
-            <div className="bg-white border-b">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-white border-b overflow-x-auto">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-max">
                     <div className="flex gap-8">
                         <button
                             onClick={() => setActiveTab('posts')}
@@ -738,13 +738,29 @@ export default function AdminPage() {
                                     <label className="block text-sm font-medium text-gray-700 mb-2">Image de couverture</label>
 
                                     {editingPost.cover_url && (
-                                        <div className="mb-4 relative h-40 w-full rounded-md overflow-hidden bg-gray-200">
+                                        <div className="mb-4 relative h-40 w-full rounded-md overflow-hidden bg-gray-200 group">
                                             <Image
                                                 src={editingPost.cover_url}
                                                 alt="Preview"
                                                 fill
                                                 style={{ objectFit: 'cover' }}
                                             />
+                                            <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                                                <button
+                                                    onClick={() => setEditingPost(prev => ({ ...prev, cover_url: null }))}
+                                                    className="p-2 bg-white rounded-full hover:bg-red-50 text-red-600 transition-colors shadow-sm"
+                                                    title="Supprimer l'image"
+                                                >
+                                                    <Trash2 className="w-5 h-5" />
+                                                </button>
+                                            </div>
+                                            {/* Mobile delete button (always visible) */}
+                                            <button
+                                                onClick={() => setEditingPost(prev => ({ ...prev, cover_url: null }))}
+                                                className="md:hidden absolute top-2 right-2 p-2 bg-white/90 rounded-full text-red-600 shadow-sm"
+                                            >
+                                                <Trash2 className="w-4 h-4" />
+                                            </button>
                                         </div>
                                     )}
 
@@ -890,7 +906,7 @@ export default function AdminPage() {
                     onClick={() => setSelectedLead(null)}
                 >
                     <div
-                        className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+                        className="bg-white md:rounded-xl shadow-2xl w-full h-full md:h-auto md:max-w-2xl md:max-h-[90vh] overflow-y-auto flex flex-col"
                         onClick={(e) => e.stopPropagation()}
                     >
                         {/* Header */}
@@ -1050,20 +1066,20 @@ export default function AdminPage() {
                             )}
 
                             {/* Action Buttons */}
-                            <div className="flex gap-3 pt-4 border-t">
+                            <div className="flex flex-col md:flex-row gap-3 pt-4 border-t pb-8 md:pb-0">
                                 <a
                                     href={`mailto:${selectedLead.email}?subject=Re: Votre demande de contact&body=Bonjour ${selectedLead.firstname} ${selectedLead.lastname},%0D%0A%0D%0A`}
-                                    className="flex-1 bg-or text-white py-3 px-4 rounded-md hover:bg-yellow-600 transition-colors flex items-center justify-center gap-2 font-medium"
+                                    className="flex-1 bg-or text-white py-4 md:py-3 px-4 rounded-md hover:bg-yellow-600 transition-colors flex items-center justify-center gap-2 font-medium"
                                 >
-                                    <Mail className="w-4 h-4" />
+                                    <Mail className="w-5 h-5 md:w-4 md:h-4" />
                                     Répondre par email
                                 </a>
                                 {selectedLead.phone && (
                                     <a
                                         href={`tel:${selectedLead.phone}`}
-                                        className="flex-1 bg-green-600 text-white py-3 px-4 rounded-md hover:bg-green-700 transition-colors flex items-center justify-center gap-2 font-medium"
+                                        className="flex-1 bg-green-600 text-white py-4 md:py-3 px-4 rounded-md hover:bg-green-700 transition-colors flex items-center justify-center gap-2 font-medium"
                                     >
-                                        <Phone className="w-4 h-4" />
+                                        <Phone className="w-5 h-5 md:w-4 md:h-4" />
                                         Appeler
                                     </a>
                                 )}
