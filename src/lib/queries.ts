@@ -307,13 +307,41 @@ export async function submitContactForm(formData: {
   city?: string;
   topic: string;
   message: string;
-}) {
+}, files?: File[]) {
   if (!supabase || !isConfigured) {
     console.log('Supabase not configured, simulating form submission');
     return { success: true, message: 'Form submitted (mock)' };
   }
 
   try {
+    let attachmentUrl: string | null = null;
+
+    // Upload files if provided
+    if (files && files.length > 0) {
+      const file = files[0]; // Take only the first file for now
+      const fileExt = file.name.split('.').pop();
+      const fileName = `${Date.now()}-${formData.firstName}-${formData.lastName}.${fileExt}`;
+      const filePath = `leads/${fileName}`;
+
+      const { data: uploadData, error: uploadError } = await supabase.storage
+        .from('documents')
+        .upload(filePath, file, {
+          cacheControl: '3600',
+          upsert: false
+        });
+
+      if (uploadError) {
+        console.error('Error uploading file:', uploadError);
+      } else {
+        // Get public URL
+        const { data: { publicUrl } } = supabase.storage
+          .from('documents')
+          .getPublicUrl(filePath);
+
+        attachmentUrl = publicUrl;
+      }
+    }
+
     const { data, error } = await supabase
       .from('leads')
       .insert([{
@@ -324,6 +352,7 @@ export async function submitContactForm(formData: {
         city: formData.city || null,
         topic: formData.topic,
         message: formData.message,
+        attachment_url: attachmentUrl,
       }]);
 
     if (error) {

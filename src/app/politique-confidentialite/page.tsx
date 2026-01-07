@@ -18,7 +18,7 @@ export default function PolitiqueConfidentialitePage() {
               Politique de Confidentialité
             </h1>
             <p className="text-xl text-anthracite mb-8 leading-relaxed max-w-3xl mx-auto">
-              Protection de vos données personnelles et respect du RGPD. 
+              Protection de vos données personnelles et respect du RGPD.
               Transparence totale sur la collecte et l'utilisation de vos informations.
             </p>
           </div>
@@ -29,7 +29,7 @@ export default function PolitiqueConfidentialitePage() {
       <section className="py-12 md:py-16 bg-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto space-y-12">
-            
+
             {/* Introduction */}
             <div className="card p-8">
               <div className="flex items-center space-x-3 mb-6">
@@ -38,20 +38,20 @@ export default function PolitiqueConfidentialitePage() {
                   Engagement de Protection
                 </h2>
               </div>
-              
+
               <div className="space-y-4">
                 <p className="text-gray-700">
-                  Le Cabinet Maître Laura Baron s'engage à protéger la confidentialité et la sécurité 
-                  de vos données personnelles conformément au Règlement Général sur la Protection des 
+                  Le Cabinet Maître Laura Baron s'engage à protéger la confidentialité et la sécurité
+                  de vos données personnelles conformément au Règlement Général sur la Protection des
                   Données (RGPD) et à la loi Informatique et Libertés.
                 </p>
-                
+
                 <p className="text-gray-700">
-                  Cette politique de confidentialité vous informe sur la manière dont nous collectons, 
-                  utilisons, stockons et protégeons vos données personnelles lorsque vous utilisez 
+                  Cette politique de confidentialité vous informe sur la manière dont nous collectons,
+                  utilisons, stockons et protégeons vos données personnelles lorsque vous utilisez
                   notre site web ou nos services.
                 </p>
-                
+
                 <div className="bg-blue-50 p-4 rounded-sm border-l-4 border-blue-400">
                   <p className="text-blue-800 text-sm">
                     <strong>Dernière mise à jour :</strong> {new Date().toLocaleDateString('fr-FR')}
@@ -68,12 +68,12 @@ export default function PolitiqueConfidentialitePage() {
                   Responsable du Traitement
                 </h2>
               </div>
-              
+
               <div className="space-y-4">
                 <p className="text-gray-700">
                   Le responsable du traitement de vos données personnelles est :
                 </p>
-                
+
                 <div className="bg-gray-50 p-4 rounded-sm">
                   <p className="text-gray-700">
                     <strong>Maître Laura Baron</strong><br />
@@ -81,7 +81,7 @@ export default function PolitiqueConfidentialitePage() {
                     24 Av. Maréchal Foch<br />
                     64100 Bayonne, France<br />
                     Téléphone : <a href="tel:+33750234606" className="text-or hover:underline">07 50 23 46 06</a><br />
-                    Email : <a href="mailto:contact@cabinet-baron.fr" className="text-or hover:underline">contact@cabinet-baron.fr</a>
+                    Email : <a href="mailto:baron.avocat@gmail.com" className="text-or hover:underline">baron.avocat@gmail.com</a>
                   </p>
                 </div>
               </div>
@@ -95,7 +95,7 @@ export default function PolitiqueConfidentialitePage() {
                   Données Personnelles Collectées
                 </h2>
               </div>
-              
+
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-semibold text-anthracite mb-3">
@@ -135,7 +135,7 @@ export default function PolitiqueConfidentialitePage() {
                     </li>
                   </ul>
                 </div>
-                
+
                 <div>
                   <h3 className="text-lg font-semibold text-anthracite mb-3">
                     2. Données collectées automatiquement
@@ -170,41 +170,41 @@ export default function PolitiqueConfidentialitePage() {
                   Finalités du Traitement
                 </h2>
               </div>
-              
+
               <div className="space-y-4">
                 <p className="text-gray-700">
                   Vos données personnelles sont traitées pour les finalités suivantes :
                 </p>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="bg-gray-50 p-4 rounded-sm">
                     <h4 className="font-semibold text-anthracite mb-2">Gestion des demandes</h4>
                     <p className="text-sm text-gray-700">
-                      Traitement de vos demandes de contact, prise de rendez-vous, 
+                      Traitement de vos demandes de contact, prise de rendez-vous,
                       réponse à vos questions juridiques.
                     </p>
                   </div>
-                  
+
                   <div className="bg-gray-50 p-4 rounded-sm">
                     <h4 className="font-semibold text-anthracite mb-2">Relation client</h4>
                     <p className="text-sm text-gray-700">
-                      Suivi de la relation client, gestion des dossiers, 
+                      Suivi de la relation client, gestion des dossiers,
                       communication sur l'avancement des procédures.
                     </p>
                   </div>
-                  
+
                   <div className="bg-gray-50 p-4 rounded-sm">
                     <h4 className="font-semibold text-anthracite mb-2">Amélioration du site</h4>
                     <p className="text-sm text-gray-700">
-                      Analyse de l'utilisation du site, amélioration de l'expérience utilisateur, 
+                      Analyse de l'utilisation du site, amélioration de l'expérience utilisateur,
                       optimisation du contenu.
                     </p>
                   </div>
-                  
+
                   <div className="bg-gray-50 p-4 rounded-sm">
                     <h4 className="font-semibold text-anthracite mb-2">Obligations légales</h4>
                     <p className="text-sm text-gray-700">
-                      Respect des obligations légales et déontologiques de la profession d'avocat, 
+                      Respect des obligations légales et déontologiques de la profession d'avocat,
                       conservation des pièces du dossier.
                     </p>
                   </div>
@@ -217,7 +217,7 @@ export default function PolitiqueConfidentialitePage() {
               <h2 className="text-2xl font-playfair font-bold text-anthracite mb-6">
                 Base Légale du Traitement
               </h2>
-              
+
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <span className="w-6 h-6 bg-or rounded-full flex items-center justify-center text-white text-xs font-bold mt-1">1</span>
@@ -228,7 +228,7 @@ export default function PolitiqueConfidentialitePage() {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-3">
                   <span className="w-6 h-6 bg-or rounded-full flex items-center justify-center text-white text-xs font-bold mt-1">2</span>
                   <div>
@@ -238,7 +238,7 @@ export default function PolitiqueConfidentialitePage() {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-3">
                   <span className="w-6 h-6 bg-or rounded-full flex items-center justify-center text-white text-xs font-bold mt-1">3</span>
                   <div>
@@ -248,7 +248,7 @@ export default function PolitiqueConfidentialitePage() {
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-3">
                   <span className="w-6 h-6 bg-or rounded-full flex items-center justify-center text-white text-xs font-bold mt-1">4</span>
                   <div>
@@ -266,37 +266,37 @@ export default function PolitiqueConfidentialitePage() {
               <h2 className="text-2xl font-playfair font-bold text-anthracite mb-6">
                 Durée de Conservation
               </h2>
-              
+
               <div className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="bg-blue-50 p-4 rounded-sm border-l-4 border-blue-400">
                     <h4 className="font-semibold text-blue-800 mb-2">Demandes de contact</h4>
                     <p className="text-blue-700 text-sm">
-                      3 ans à compter de la dernière interaction, 
+                      3 ans à compter de la dernière interaction,
                       sauf si une relation client s'établit.
                     </p>
                   </div>
-                  
+
                   <div className="bg-green-50 p-4 rounded-sm border-l-4 border-green-400">
                     <h4 className="font-semibold text-green-800 mb-2">Dossiers clients</h4>
                     <p className="text-green-700 text-sm">
-                      30 ans minimum conformément aux obligations 
+                      30 ans minimum conformément aux obligations
                       déontologiques de la profession d'avocat.
                     </p>
                   </div>
-                  
+
                   <div className="bg-purple-50 p-4 rounded-sm border-l-4 border-purple-400">
                     <h4 className="font-semibold text-purple-800 mb-2">Données de navigation</h4>
                     <p className="text-purple-700 text-sm">
-                      13 mois maximum pour les cookies, 
+                      13 mois maximum pour les cookies,
                       logs serveur conservés 1 an.
                     </p>
                   </div>
-                  
+
                   <div className="bg-orange-50 p-4 rounded-sm border-l-4 border-orange-400">
                     <h4 className="font-semibold text-orange-800 mb-2">Newsletter</h4>
                     <p className="text-orange-700 text-sm">
-                      Jusqu'à désinscription ou 3 ans 
+                      Jusqu'à désinscription ou 3 ans
                       d'inactivité (pas d'ouverture d'email).
                     </p>
                   </div>
@@ -312,12 +312,12 @@ export default function PolitiqueConfidentialitePage() {
                   Vos Droits RGPD
                 </h2>
               </div>
-              
+
               <div className="space-y-6">
                 <p className="text-gray-700">
                   Conformément au RGPD, vous disposez des droits suivants sur vos données personnelles :
                 </p>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="flex items-start space-x-3">
                     <div className="w-8 h-8 bg-or rounded-full flex items-center justify-center flex-shrink-0">
@@ -330,7 +330,7 @@ export default function PolitiqueConfidentialitePage() {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start space-x-3">
                     <div className="w-8 h-8 bg-or rounded-full flex items-center justify-center flex-shrink-0">
                       <FileText className="w-4 h-4 text-white" />
@@ -342,7 +342,7 @@ export default function PolitiqueConfidentialitePage() {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start space-x-3">
                     <div className="w-8 h-8 bg-or rounded-full flex items-center justify-center flex-shrink-0">
                       <AlertTriangle className="w-4 h-4 text-white" />
@@ -354,7 +354,7 @@ export default function PolitiqueConfidentialitePage() {
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start space-x-3">
                     <div className="w-8 h-8 bg-or rounded-full flex items-center justify-center flex-shrink-0">
                       <Lock className="w-4 h-4 text-white" />
@@ -367,7 +367,7 @@ export default function PolitiqueConfidentialitePage() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="bg-amber-50 p-4 rounded-sm border-l-4 border-or">
                   <h4 className="font-semibold text-amber-800 mb-2">Comment exercer vos droits ?</h4>
                   <p className="text-amber-700 text-sm mb-2">
@@ -390,13 +390,13 @@ export default function PolitiqueConfidentialitePage() {
                   Sécurité des Données
                 </h2>
               </div>
-              
+
               <div className="space-y-4">
                 <p className="text-gray-700">
-                  Nous mettons en œuvre des mesures techniques et organisationnelles appropriées 
+                  Nous mettons en œuvre des mesures techniques et organisationnelles appropriées
                   pour protéger vos données personnelles :
                 </p>
-                
+
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-or rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -427,14 +427,14 @@ export default function PolitiqueConfidentialitePage() {
               <h2 className="text-2xl font-playfair font-bold text-anthracite mb-6">
                 Cookies et Technologies Similaires
               </h2>
-              
+
               <div className="space-y-4">
                 <p className="text-gray-700">
-                  Notre site utilise des cookies pour améliorer votre expérience de navigation. 
-                  Vous pouvez gérer vos préférences via le bandeau de cookies qui s'affiche 
+                  Notre site utilise des cookies pour améliorer votre expérience de navigation.
+                  Vous pouvez gérer vos préférences via le bandeau de cookies qui s'affiche
                   lors de votre première visite.
                 </p>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="bg-green-50 p-4 rounded-sm border-l-4 border-green-400">
                     <h4 className="font-semibold text-green-800 mb-2">Cookies essentiels</h4>
@@ -442,14 +442,14 @@ export default function PolitiqueConfidentialitePage() {
                       Nécessaires au fonctionnement du site (sécurité, navigation).
                     </p>
                   </div>
-                  
+
                   <div className="bg-blue-50 p-4 rounded-sm border-l-4 border-blue-400">
                     <h4 className="font-semibold text-blue-800 mb-2">Cookies analytiques</h4>
                     <p className="text-blue-700 text-sm">
                       Mesure d'audience et amélioration du site (avec votre consentement).
                     </p>
                   </div>
-                  
+
                   <div className="bg-purple-50 p-4 rounded-sm border-l-4 border-purple-400">
                     <h4 className="font-semibold text-purple-800 mb-2">Cookies marketing</h4>
                     <p className="text-purple-700 text-sm">
@@ -466,7 +466,7 @@ export default function PolitiqueConfidentialitePage() {
                 Questions sur vos Données ?
               </h2>
               <p className="text-gray-700 text-center mb-6">
-                Pour toute question concernant le traitement de vos données personnelles 
+                Pour toute question concernant le traitement de vos données personnelles
                 ou pour exercer vos droits RGPD, contactez-nous.
               </p>
               <div className="text-center space-y-4">
@@ -481,7 +481,7 @@ export default function PolitiqueConfidentialitePage() {
                   </Link>
                 </div>
                 <p className="text-sm text-gray-600">
-                  Vous avez également le droit de déposer une réclamation auprès de la 
+                  Vous avez également le droit de déposer une réclamation auprès de la
                   <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" className="text-or hover:underline ml-1">
                     CNIL
                   </a>

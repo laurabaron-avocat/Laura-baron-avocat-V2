@@ -24,7 +24,7 @@ export default function ContactForm() {
     message: '',
     consent: false,
   });
-  
+
   const [files, setFiles] = useState<File[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -51,7 +51,7 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
       await submitContactForm({
         firstName: formData.firstName,
@@ -60,8 +60,8 @@ export default function ContactForm() {
         phone: formData.phone,
         topic: formData.subject,
         message: formData.message,
-      });
-      
+      }, files);
+
       setSubmitStatus('success');
       setFormData({
         firstName: '',
@@ -223,7 +223,7 @@ export default function ContactForm() {
             </span>
           </label>
         </div>
-        
+
         {files.length > 0 && (
           <div className="mt-2 space-y-1 md:space-y-2">
             {files.map((file, index) => (
