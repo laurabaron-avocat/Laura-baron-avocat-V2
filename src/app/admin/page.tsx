@@ -265,36 +265,73 @@ export default function AdminPage() {
         const file = e.target.files?.[0];
         if (!file || !supabase) return;
 
+        console.log("Début upload image:", file.name);
         setUploadingImage(true);
+
         try {
-            // 1. Convert to WebP
+            // 1. Conversion en WebP
+            console.log("Conversion en WebP...");
             const webpBlob = await convertToWebP(file);
+            console.log("Image convertie en WebP", webpBlob.size);
 
-            // 2. Prepare filename (seo friendly)
-            const filename = `${Date.now()}-${file.name.split('.')[0].replace(/[^a-z0-9]/gi, '-').toLowerCase()}.webp`;
-            const filePath = `blog/${filename}`; // Adjust folder as needed
+            // 2. Préparation du nom de fichier SEO Friendly
+            // Utilise le titre de l'article si disponible, sinon le nom du fichier
+            let baseName = "image";
+            if (editingPost?.title) {
+                baseName = editingPost.title
+                    .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // Enlève les accents
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]+/g, '-') // Remplace caractères spéciaux par tirets
+                    .replace(/^-+|-+$/g, ''); // Trim tirets
+            } else {
+                baseName = file.name.split('.')[0]
+                    .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+                    .toLowerCase()
+                    .replace(/[^a-z0-9]+/g, '-');
+            }
 
-            // 3. Upload to Supabase
-            const { data, error } = await supabase.storage
-                .from('images') // Ensure this bucket exists
+            // Limit length and add timestamp for uniqueness
+            const cleanName = baseName.slice(0, 50);
+            const filename = `${Date.now()}-${cleanName}.webp`;
+            const filePath = `blog/${filename}`;
+
+            console.log("Upload vers:", filePath);
+
+            // 3. Upload vers Supabase (Bucket 'images')
+            const { data, error: uploadError } = await supabase.storage
+                .from('images')
                 .upload(filePath, webpBlob, {
                     contentType: 'image/webp',
                     upsert: false
                 });
 
-            if (error) throw error;
+            if (uploadError) {
+                console.error("Erreur Upload Supabase:", uploadError);
+                throw uploadError;
+            }
 
-            // 4. Get Public URL
+            console.log("Upload réussi:", data);
+
+            // 4. Récupération URL Publique
             const { data: { publicUrl } } = supabase.storage
                 .from('images')
                 .getPublicUrl(filePath);
 
-            setEditingPost(prev => ({ ...prev, cover_url: publicUrl }));
-        } catch (err) {
-            console.error(err);
-            alert('Erreur lors de l\'upload de l\'image. Vérifiez que le bucket "images" existe et est public.');
+            console.log("URL Publique générée:", publicUrl);
+
+            // Mise à jour de l'état local
+            setEditingPost(prev => {
+                if (!prev) return null;
+                return { ...prev, cover_url: publicUrl };
+            });
+
+        } catch (err: any) {
+            console.error("Erreur complète upload:", err);
+            alert(`Erreur lors de l'upload: ${err.message || 'Erreur inconnue'}`);
         } finally {
             setUploadingImage(false);
+            // Reset input value to allow re-uploading same file if needed
+            e.target.value = '';
         }
     };
 
