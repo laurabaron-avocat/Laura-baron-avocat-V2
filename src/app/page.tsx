@@ -122,16 +122,16 @@ export default async function HomePage() {
                 </h1>
                 <p className="mobile-subtitle text-anthracite mb-6 md:mb-10 leading-relaxed max-w-xl">
                   <strong>Avocate en dommage corporel à Bayonne</strong> : indemnisation des victimes d'accidents de la route, accidents médicaux, agressions. Plus de 10 ans d'expérience au Pays Basque pour obtenir la meilleure réparation de vos préjudices.
-                  <span className="block mt-4 text-noir font-bold text-2xl border-l-4 border-or pl-4 bg-or/5 py-2">
+                  <span className="block mt-4 text-noir font-bold text-lg md:text-xl border-l-4 border-or pl-4 bg-or/5 py-2">
                     S'informer est le premier pas pour se défendre. La <span className="underline decoration-or decoration-2 underline-offset-4">consultation est gratuite</span>.
                   </span>
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                  <Link href="tel:+33750234606" className="bg-noir text-white hover:bg-anthracite px-10 py-5 rounded-sm font-bold transition-all text-lg shadow-lg flex items-center justify-center">
-                    <Phone size={24} className="mr-3" />
+                  <Link href="tel:+33750234606" className="bg-noir text-white hover:bg-anthracite px-6 py-3 rounded-sm font-semibold transition-all text-base shadow-lg flex items-center justify-center">
+                    <Phone size={20} className="mr-2" />
                     Appeler maintenant
                   </Link>
-                  <Link href="/contact" className="border-2 border-noir text-noir hover:bg-beige px-10 py-5 rounded-sm font-bold transition-all text-lg flex items-center justify-center">
+                  <Link href="/contact" className="border-2 border-noir text-noir hover:bg-beige px-6 py-3 rounded-sm font-semibold transition-all text-base flex items-center justify-center">
                     Prendre rendez-vous
                   </Link>
                 </div>
