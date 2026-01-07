@@ -97,6 +97,17 @@ export default async function HomePage() {
           <div className="mobile-grid-2 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div className="animate-slide-up">
               <div>
+                {/* Badge Consultation Gratuite - Version Lien (Cliquable) */}
+                <Link href="/contact" className="inline-flex items-center space-x-3 bg-or text-noir px-6 py-3 rounded-full mb-10 shadow-xl transform hover:scale-105 transition-all duration-300 border-2 border-white group/badge">
+                  <div className="relative flex h-3.5 w-3.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-green-600"></span>
+                  </div>
+                  <span className="text-noir font-black text-xs md:text-sm uppercase tracking-widest">
+                    Première consultation offerte • Sans engagement
+                  </span>
+                </Link>
+
                 {/* Version Mobile du titre */}
                 <h1 className="md:hidden text-3xl font-playfair font-bold text-center mb-6 hero-claim leading-tight">
                   <span className="block text-noir mb-3 text-4xl">Avocat Dommage Corporel</span>
@@ -109,38 +120,40 @@ export default async function HomePage() {
                   Avocat Dommage Corporel à Bayonne
                   <span className="text-or block mt-2">Expert en Indemnisation des Victimes d'Accident</span>
                 </h1>
-                <p className="mobile-subtitle text-anthracite mb-6 md:mb-8 leading-relaxed">
-                  <strong>Avocate en dommage corporel à Bayonne</strong> : indemnisation des victimes d'accidents de la route, accidents médicaux, agressions.
-                  Plus de 10 ans d'expérience au Pays Basque pour obtenir la meilleure réparation de vos préjudices.
+                <p className="mobile-subtitle text-anthracite mb-6 md:mb-10 leading-relaxed max-w-xl">
+                  <strong>Avocate en dommage corporel à Bayonne</strong> : indemnisation des victimes d'accidents de la route, accidents médicaux, agressions. Plus de 10 ans d'expérience au Pays Basque pour obtenir la meilleure réparation de vos préjudices.
+                  <span className="block mt-4 text-noir font-bold text-2xl border-l-4 border-or pl-4 bg-or/5 py-2">
+                    S'informer est le premier pas pour se défendre. La <span className="underline decoration-or decoration-2 underline-offset-4">consultation est gratuite</span>.
+                  </span>
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 md:mb-8">
-                  <Link href="tel:+33750234606" className="btn-primary inline-flex items-center justify-center">
-                    <Phone size={18} className="mr-2" />
+                <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                  <Link href="tel:+33750234606" className="bg-noir text-white hover:bg-anthracite px-10 py-5 rounded-sm font-bold transition-all text-lg shadow-lg flex items-center justify-center">
+                    <Phone size={24} className="mr-3" />
                     Appeler maintenant
                   </Link>
-                  <Link href="/contact" className="btn-secondary">
-                    Demander un rendez-vous
+                  <Link href="/contact" className="border-2 border-noir text-noir hover:bg-beige px-10 py-5 rounded-sm font-bold transition-all text-lg flex items-center justify-center">
+                    Prendre rendez-vous
                   </Link>
                 </div>
                 <div className="flex items-center text-xs sm:text-sm text-gray-600">
-                  <CheckCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-600 mr-2 flex-shrink-0" />
-                  <span>Inscrite au Barreau de Bayonne • Cabinet à Bayonne</span>
+                  <CheckCircle className="w-4 h-4 text-green-600 mr-2 flex-shrink-0" />
+                  <span>Inscrite au Barreau de Bayonne • Cabinet Bayonne & Toulouse</span>
                 </div>
               </div>
             </div>
-            
-            <div className="text-center">
+
+            <div className="text-center relative">
               <img
                 src="https://qncljsxdjefkimfxdzuf.supabase.co/storage/v1/object/public/images/Maitre-Laura-Baron-Avocat-barreau-bayonne-specialiste-dommage-corporelle-accident-de-la-route.jpg"
                 alt="Maître Laura Baron - Avocat et avocate expert en dommage corporel à Bayonne, spécialisée indemnisation accidents de la route, accidents médicaux, agressions"
-                className="w-full h-80 md:h-[500px] object-contain md:object-cover rounded-lg shadow-lg md:object-[center_10%] hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
+                className="w-full h-80 md:h-[600px] object-contain md:object-cover rounded-lg shadow-2xl md:object-[center_10%] hover:scale-[1.01] transition-transform duration-500"
               />
-              <div className="mt-4 md:mt-6">
-                <h3 className="text-lg md:text-xl font-playfair font-semibold text-anthracite mb-2">
+              <div className="mt-6">
+                <h3 className="text-xl md:text-2xl font-playfair font-bold text-noir">
                   Maître Laura Baron
                 </h3>
-                <p className="text-sm md:text-base text-gray-700">
-                  Avocate en dommage corporel
+                <p className="text-base text-anthracite font-medium">
+                  Avocate au Barreau de Bayonne
                 </p>
               </div>
             </div>
@@ -193,7 +206,7 @@ export default async function HomePage() {
               de votre indemnisation, quel que soit l'origine de vos préjudices.
             </p>
           </div>
-          
+
           <div className="mobile-grid-4 lg:grid-cols-4">
             <DomainCard
               title="Accidents de la route"
@@ -266,7 +279,7 @@ export default async function HomePage() {
             {/* Grande guillemet d'ouverture */}
             <div className="relative mb-8">
               <svg className="w-16 h-16 md:w-20 md:h-20 text-or/30 mx-auto" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
               </svg>
             </div>
 
@@ -288,7 +301,7 @@ export default async function HomePage() {
             {/* Grande guillemet de fermeture */}
             <div className="relative mt-8">
               <svg className="w-16 h-16 md:w-20 md:h-20 text-or/30 mx-auto rotate-180" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z" />
               </svg>
             </div>
           </div>
@@ -298,7 +311,7 @@ export default async function HomePage() {
       {/* Section d'aide aux victimes */}
       <section className="section-padding bg-white">
         <div className="container-custom no-overflow">
-          
+
           <div className="mobile-grid-2 md:grid-cols-2 gap-6 md:gap-12 mb-8 md:mb-12">
             {/* Colonne gauche - Le problème */}
             <div className="bg-white border border-red-200 p-6 md:p-8 rounded-sm shadow-sm">
@@ -314,21 +327,21 @@ export default async function HomePage() {
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0 sm:mt-1"></div>
                   <p className="text-sm sm:text-base">
-                    <strong className="text-red-700">Offres dérisoires :</strong> Les assurances proposent en moyenne 
+                    <strong className="text-red-700">Offres dérisoires :</strong> Les assurances proposent en moyenne
                     <span className="text-red-600 font-bold"> 30 à 50% de moins</span> que vos droits réels
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0 sm:mt-1"></div>
                   <p className="text-sm sm:text-base">
-                    <strong className="text-red-700">Préjudices oubliés :</strong> Préjudice d'agrément, esthétique, 
+                    <strong className="text-red-700">Préjudices oubliés :</strong> Préjudice d'agrément, esthétique,
                     sexuel... <span className="text-red-600 font-bold">Des milliers d'euros non réclamés</span>
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0 sm:mt-1"></div>
                   <p className="text-sm sm:text-base">
-                    <strong className="text-red-700">Expertises biaisées :</strong> Les experts des assurances minimisent 
+                    <strong className="text-red-700">Expertises biaisées :</strong> Les experts des assurances minimisent
                     systématiquement vos séquelles
                   </p>
                 </div>
@@ -354,21 +367,21 @@ export default async function HomePage() {
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-or rounded-full mt-2 flex-shrink-0 sm:mt-1"></div>
                   <p className="text-sm sm:text-base">
-                    <strong className="text-or">Évaluation complète :</strong> Tous vos préjudices identifiés et 
+                    <strong className="text-or">Évaluation complète :</strong> Tous vos préjudices identifiés et
                     <span className="text-or font-bold"> chiffrés au centime près</span>
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-or rounded-full mt-2 flex-shrink-0 sm:mt-1"></div>
                   <p className="text-sm sm:text-base">
-                    <strong className="text-or">Médecin-conseil :</strong> Expert indépendant qui défend 
+                    <strong className="text-or">Médecin-conseil :</strong> Expert indépendant qui défend
                     <span className="text-or font-bold"> VOS intérêts</span> lors des expertises
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-or rounded-full mt-2 flex-shrink-0 sm:mt-1"></div>
                   <p className="text-sm sm:text-base">
-                    <strong className="text-or">Négociation experte :</strong> 
+                    <strong className="text-or">Négociation experte :</strong>
                     <span className="text-or font-bold"> +10 ans d'expérience</span> face aux assureurs
                   </p>
                 </div>
@@ -388,7 +401,7 @@ export default async function HomePage() {
                 Ne commettez pas l'erreur de passer à côté de l'indemnisation à laquelle vous avez réellement droit
               </h4>
               <p className="text-anthracite mb-6 md:mb-8 mobile-text leading-relaxed">
-                Vos préjudices ont une valeur. Ne laissez personne vous convaincre du contraire. 
+                Vos préjudices ont une valeur. Ne laissez personne vous convaincre du contraire.
                 <strong className="text-noir"> Découvrez ce que vous devriez vraiment recevoir.</strong>
               </p>
               <Link href="/contact" className="bg-or text-noir hover:bg-yellow-600 px-6 md:px-10 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-colors inline-flex items-center justify-center w-full sm:w-auto">
@@ -410,7 +423,7 @@ export default async function HomePage() {
               Une expertise reconnue et des résultats concrets pour nos clients
             </p>
           </div>
-          
+
           <div className="mobile-grid-3 md:grid-cols-3">
             <div className="text-center">
               <div className="bg-gradient-to-br from-or/20 to-amber-100 w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg border-2 border-or/30">
@@ -419,7 +432,7 @@ export default async function HomePage() {
               <h3 className="text-xl md:text-2xl font-playfair font-semibold mb-2">+10 ans</h3>
               <p className="text-gray-700 mobile-text">d'expérience en dommage corporel</p>
             </div>
-            
+
             <div className="text-center">
               <div className="bg-gradient-to-br from-green-100 to-emerald-50 w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg border-2 border-green-200">
                 <CheckCircle className="w-9 h-9 md:w-11 md:h-11 text-green-600 drop-shadow-sm" />
@@ -427,7 +440,7 @@ export default async function HomePage() {
               <h3 className="text-xl md:text-2xl font-playfair font-semibold mb-2">100%</h3>
               <p className="text-gray-700 mobile-text">de clients satisfaits</p>
             </div>
-            
+
             <div className="text-center">
               <div className="bg-gradient-to-br from-blue-100 to-sky-50 w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg border-2 border-blue-200">
                 <Users className="w-9 h-9 md:w-11 md:h-11 text-blue-600 drop-shadow-sm" />
@@ -444,9 +457,9 @@ export default async function HomePage() {
         <div className="container-custom no-overflow">
           <div className="text-center mb-12 md:mb-16 px-4">
             <div className="flex items-center justify-center space-x-4 mb-6">
-              <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" 
-                alt="Google" 
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+                alt="Google"
                 className="w-6 h-6 md:w-8 md:h-8"
               />
               <h2 className="mobile-title font-playfair font-bold text-noir">
@@ -464,16 +477,16 @@ export default async function HomePage() {
               <span className="text-lg md:text-xl font-semibold text-anthracite">5,0</span>
               <span className="text-gray-600 text-sm md:text-base">• 37 avis</span>
             </div>
-            <a 
-              href="https://share.google/0sunw63oZvRiJfUno" 
-              target="_blank" 
+            <a
+              href="https://share.google/0sunw63oZvRiJfUno"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-or hover:text-yellow-600 text-xs md:text-sm font-medium transition-colors"
             >
               Voir tous les avis sur Google
             </a>
           </div>
-          
+
           {/* Carrousel d'avis */}
           <div className="relative overflow-hidden -mx-4 px-4">
             <div className="flex animate-scroll space-x-4 md:space-x-6">
@@ -499,7 +512,7 @@ export default async function HomePage() {
                 </p>
                 <p className="text-xs text-gray-500 mt-2 md:mt-3">il y a un mois</p>
               </div>
-              
+
               {/* Avis 2 */}
               <div className="flex-shrink-0 w-72 md:w-80 bg-white p-4 md:p-6 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
                 <div className="flex items-center mb-4">
@@ -522,7 +535,7 @@ export default async function HomePage() {
                 </p>
                 <p className="text-xs text-gray-500 mt-2 md:mt-3">il y a un mois</p>
               </div>
-              
+
               {/* Avis 3 */}
               <div className="flex-shrink-0 w-80 bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
                 <div className="flex items-center mb-4">
@@ -545,7 +558,7 @@ export default async function HomePage() {
                 </p>
                 <p className="text-xs text-gray-500 mt-3">il y a un mois</p>
               </div>
-              
+
               {/* Avis 4 */}
               <div className="flex-shrink-0 w-80 bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
                 <div className="flex items-center mb-4">
@@ -568,7 +581,7 @@ export default async function HomePage() {
                 </p>
                 <p className="text-xs text-gray-500 mt-3">il y a 3 mois</p>
               </div>
-              
+
               {/* Avis 5 */}
               <div className="flex-shrink-0 w-80 bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
                 <div className="flex items-center mb-4">
@@ -591,7 +604,7 @@ export default async function HomePage() {
                 </p>
                 <p className="text-xs text-gray-500 mt-3">il y a 7 mois</p>
               </div>
-              
+
               {/* Avis 6 */}
               <div className="flex-shrink-0 w-80 bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
                 <div className="flex items-center mb-4">
@@ -614,7 +627,7 @@ export default async function HomePage() {
                 </p>
                 <p className="text-xs text-gray-500 mt-3">il y a 3 mois</p>
               </div>
-              
+
               {/* Répétition pour effet de boucle infinie */}
               <div className="flex-shrink-0 w-80 bg-white p-6 rounded-lg shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
                 <div className="flex items-center mb-4">
@@ -650,11 +663,11 @@ export default async function HomePage() {
               Notre cabinet à Bayonne
             </h2>
             <p className="mobile-subtitle text-gray-700 max-w-3xl mx-auto">
-              Situé au cœur de Bayonne, notre cabinet vous accueille dans un cadre professionnel 
+              Situé au cœur de Bayonne, notre cabinet vous accueille dans un cadre professionnel
               pour vous accompagner dans vos démarches d'indemnisation.
             </p>
           </div>
-          
+
           <div className="mobile-grid-2 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Carte Google Maps */}
             <div className="order-2 lg:order-1">
@@ -672,7 +685,7 @@ export default async function HomePage() {
                 />
               </div>
             </div>
-            
+
             {/* Informations du cabinet */}
             <div className="order-1 lg:order-2">
               <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg border border-gray-100">
@@ -697,7 +710,7 @@ export default async function HomePage() {
                       </a>
                     </div>
                   </div>
-                  
+
                   <div className="flex flex-col items-center space-y-2">
                     <div className="flex items-center space-x-2">
                       <Phone className="w-4.5 h-4.5 md:w-5 md:h-5 text-or flex-shrink-0" />
@@ -709,7 +722,7 @@ export default async function HomePage() {
                       </a>
                     </div>
                   </div>
-                  
+
                   <div className="flex flex-col items-center space-y-2">
                     <div className="flex items-center space-x-2">
                       <Clock className="w-4.5 h-4.5 md:w-5 md:h-5 text-or flex-shrink-0" />
@@ -723,7 +736,7 @@ export default async function HomePage() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="flex flex-col items-center space-y-2">
                     <div className="flex items-center space-x-2">
                       <Car className="w-4.5 h-4.5 md:w-5 md:h-5 text-or flex-shrink-0" />
@@ -738,7 +751,7 @@ export default async function HomePage() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="mt-6 pt-6 border-t border-or/30 text-center">
                   <Link href="/contact" className="btn-primary inline-flex items-center justify-center">
                     Prendre rendez-vous
@@ -777,11 +790,11 @@ export default async function HomePage() {
               Les réponses aux questions les plus courantes sur l'indemnisation du dommage corporel
             </p>
           </div>
-          
+
           <div className="max-w-4xl mx-auto">
             <FAQ items={faqItems} pageKey="accueil" />
           </div>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
             <Link href="/indemnisation-victimes" className="btn-secondary inline-flex items-center justify-center">
               Voir toutes les questions
@@ -793,7 +806,7 @@ export default async function HomePage() {
               className="btn-primary inline-flex items-center justify-center gap-2"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.896zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08-4.778 2.758a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z"/>
+                <path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073zM13.26 22.43a4.476 4.476 0 0 1-2.876-1.04l.141-.081 4.779-2.758a.795.795 0 0 0 .392-.681v-6.737l2.02 1.168a.071.071 0 0 1 .038.052v5.583a4.504 4.504 0 0 1-4.494 4.494zM3.6 18.304a4.47 4.47 0 0 1-.535-3.014l.142.085 4.783 2.759a.771.771 0 0 0 .78 0l5.843-3.369v2.332a.08.08 0 0 1-.033.062L9.74 19.95a4.5 4.5 0 0 1-6.14-1.646zM2.34 7.896a4.485 4.485 0 0 1 2.366-1.973V11.6a.766.766 0 0 0 .388.676l5.815 3.355-2.02 1.168a.076.076 0 0 1-.071 0l-4.83-2.786A4.504 4.504 0 0 1 2.34 7.896zm16.597 3.855l-5.833-3.387L15.119 7.2a.076.076 0 0 1 .071 0l4.83 2.791a4.494 4.494 0 0 1-.676 8.105v-5.678a.79.79 0 0 0-.407-.667zm2.01-3.023l-.141-.085-4.774-2.782a.776.776 0 0 0-.785 0L9.409 9.23V6.897a.066.066 0 0 1 .028-.061l4.83-2.787a4.5 4.5 0 0 1 6.68 4.66zm-12.64 4.135l-2.02-1.164a.08.08 0 0 1-.038-.057V6.075a4.5 4.5 0 0 1 7.375-3.453l-.142.08-4.778 2.758a.795.795 0 0 0-.393.681zm1.097-2.365l2.602-1.5 2.607 1.5v2.999l-2.597 1.5-2.607-1.5z" />
               </svg>
               Posez vos questions à notre IA
             </a>
@@ -808,7 +821,7 @@ export default async function HomePage() {
             Prêt à défendre vos droits ?
           </h2>
           <p className="mobile-subtitle mb-6 md:mb-8 max-w-2xl mx-auto text-gray-300">
-            Contactez-nous dès aujourd'hui pour une première évaluation de votre situation. 
+            Contactez-nous dès aujourd'hui pour une première évaluation de votre situation.
             Consultation confidentielle et sans engagement.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">

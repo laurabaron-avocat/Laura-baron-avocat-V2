@@ -67,7 +67,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <img 
+            <img
               src="https://qncljsxdjefkimfxdzuf.supabase.co/storage/v1/object/public/images/Logo-laura-baron-maitre-avocat-bayonne.png"
               alt="Logo Maître Laura Baron"
               className="h-12 w-auto"
@@ -79,28 +79,31 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex space-x-6 xl:space-x-8">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navigation.map((item) => (
               <div key={item.name} className="relative group">
                 {item.dropdown ? (
                   <>
                     <button
-                      className="text-gray-700 hover:text-amber-600 px-2 xl:px-3 py-2 text-sm font-medium transition-colors whitespace-nowrap inline-flex items-baseline"
-                      style={{ transform: 'translateY(-7.2px)' }}
+                      className="group inline-flex items-center text-gray-900 hover:text-amber-600 px-1 py-2 text-sm font-medium transition-colors"
                       onMouseEnter={() => setIsDropdownOpen(true)}
                       onMouseLeave={() => setIsDropdownOpen(false)}
+                      aria-expanded={isDropdownOpen}
                     >
-                      {item.name}
-                      <ChevronDown size={16} className="ml-1" style={{ transform: 'translateY(2mm)' }} />
+                      <span className="relative">
+                        {item.name}
+                        <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-amber-600 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
+                      </span>
+                      <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
                     </button>
                     <div
-                      className="absolute left-0 top-full mt-1 w-56 bg-white rounded-lg shadow-lg border border-gray-100 py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
+                      className="absolute left-1/2 -translate-x-1/2 top-full mt-0 w-64 bg-white rounded-xl shadow-xl border border-gray-100 p-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
                       onMouseEnter={() => setIsDropdownOpen(true)}
                       onMouseLeave={() => setIsDropdownOpen(false)}
                     >
                       <Link
                         href={item.href}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-amber-600 transition-colors border-b border-gray-100"
+                        className="block px-4 py-3 text-sm text-gray-700 hover:bg-amber-50 hover:text-amber-700 rounded-lg transition-colors font-medium"
                       >
                         Vue d'ensemble
                       </Link>
@@ -108,7 +111,7 @@ export default function Header() {
                         <Link
                           key={dropdownItem.name}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 hover:text-amber-600 transition-colors"
+                          className="block px-4 py-3 text-sm text-gray-600 hover:bg-amber-50 hover:text-amber-700 rounded-lg transition-colors"
                         >
                           {dropdownItem.name}
                         </Link>
@@ -118,9 +121,10 @@ export default function Header() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-gray-700 hover:text-amber-600 px-2 xl:px-3 py-2 text-sm font-medium transition-colors whitespace-nowrap"
+                    className="relative text-gray-900 hover:text-amber-600 px-1 py-2 text-sm font-medium transition-colors group"
                   >
                     {item.name}
+                    <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-amber-600 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                   </Link>
                 )}
               </div>
@@ -128,13 +132,15 @@ export default function Header() {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center ml-4">
             <a
               href="tel:+33750234606"
-              className="flex items-center space-x-1 md:space-x-2 bg-amber-600 text-white px-3 md:px-4 py-2 rounded-lg hover:bg-amber-700 transition-colors text-sm whitespace-nowrap"
+              className="group flex items-center gap-2 bg-amber-600 text-white pl-4 pr-5 py-2.5 rounded-full hover:bg-amber-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
             >
-              <Phone className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
-              <span className="text-xs md:text-sm font-medium">07 50 23 46 06</span>
+              <div className="bg-white/20 p-1.5 rounded-full">
+                <Phone className="w-3.5 h-3.5" />
+              </div>
+              <span className="text-sm font-bold tracking-wide">07 50 23 46 06</span>
             </a>
           </div>
 
@@ -197,9 +203,8 @@ export default function Header() {
                               <span>{item.name}</span>
                               <ChevronDown
                                 size={20}
-                                className={`transition-transform duration-200 ${
-                                  mobileDropdownOpen === item.name ? 'rotate-180' : ''
-                                }`}
+                                className={`transition-transform duration-200 ${mobileDropdownOpen === item.name ? 'rotate-180' : ''
+                                  }`}
                               />
                             </button>
                             {mobileDropdownOpen === item.name && (
