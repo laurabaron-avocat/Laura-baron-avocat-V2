@@ -1,19 +1,19 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Car, Users, Shield, CheckCircle, ArrowRight, Scale, FileText, Clock } from 'lucide-react';
+import { Car, Users, Shield, CheckCircle, ArrowRight, Scale, FileText, Clock, Download } from 'lucide-react';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 
 export const metadata: Metadata = {
-  title: 'Accidents de la Route • Loi Badinter • Avocat en Dommage Corporel',
-  description: 'Avocat expert en accidents de la route : indemnisation Loi Badinter, piétons, cyclistes, passagers. Protection renforcée et expertise juridique complète.',
+  title: 'Accidents de la Route • Loi Badinter • Constat Amiable PDF • Avocat Spécialisé',
+  description: 'Avocat expert en accidents de la route : indemnisation Loi Badinter 1985, téléchargement gratuit constat amiable PDF, protection piétons, cyclistes, passagers. Expertise juridique complète en dommage corporel.',
 };
 
 export default function AccidentsRoutePage() {
   const jsonLD = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Accidents de la Route • Loi Badinter • Avocat en Dommage Corporel',
-    description: 'Expertise juridique complète en accidents de la route : Loi Badinter, indemnisation piétons, cyclistes, passagers et conducteurs.',
+    headline: 'Accidents de la Route • Loi Badinter • Constat Amiable PDF • Avocat Spécialisé',
+    description: 'Expertise juridique complète en accidents de la route : Loi Badinter 1985, téléchargement gratuit constat amiable PDF, indemnisation piétons, cyclistes, passagers et conducteurs.',
     author: {
       '@type': 'Person',
       name: 'Maître Laura Baron',
@@ -27,6 +27,21 @@ export default function AccidentsRoutePage() {
       '@type': 'WebPage',
       '@id': 'https://laurabaron-avocat.com/accidents-route',
     },
+    about: [
+      {
+        '@type': 'Thing',
+        name: 'Loi Badinter',
+        description: 'Loi du 5 juillet 1985 sur l\'indemnisation des victimes d\'accidents de la circulation',
+        url: 'https://www.legifrance.gouv.fr/loda/id/LEGISCTA000006108633'
+      },
+      {
+        '@type': 'DigitalDocument',
+        name: 'Constat Amiable',
+        description: 'Document officiel pour déclarer un accident de la route',
+        url: 'https://qncljsxdjefkimfxdzuf.supabase.co/storage/v1/object/public/images/Constat_Amiable.pdf'
+      }
+    ],
+    keywords: 'accident route, loi badinter, constat amiable, indemnisation, dommage corporel, avocat, piéton, cycliste, passager'
   };
 
   return (
@@ -90,7 +105,7 @@ export default function AccidentsRoutePage() {
                     Principe fondamental
                   </h3>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    La Loi Badinter du 5 juillet 1985 instaure un <strong>droit à indemnisation quasi-automatique</strong>
+                    La <a href="https://www.legifrance.gouv.fr/loda/id/LEGISCTA000006108633" target="_blank" rel="noopener noreferrer" className="text-or hover:text-yellow-600 underline font-semibold">Loi Badinter du 5 juillet 1985</a> instaure un <strong>droit à indemnisation quasi-automatique</strong>
                     pour les victimes d'accidents de la circulation impliquant un véhicule terrestre à moteur.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
@@ -200,6 +215,78 @@ export default function AccidentsRoutePage() {
                       <p className="text-sm text-gray-600">
                         Optimisation de l'indemnisation avec votre avocat
                       </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Document utile - Constat amiable */}
+      <section className="section-padding bg-gradient-to-r from-or/5 to-yellow-50">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
+              <div className="flex flex-col md:flex-row items-center gap-8">
+                <div className="bg-or/10 rounded-full p-6 flex-shrink-0">
+                  <FileText size={48} className="text-or" />
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                  <h2 className="text-2xl md:text-3xl font-playfair font-bold text-noir mb-4">
+                    Téléchargez le constat amiable
+                  </h2>
+                  <p className="text-gray-700 leading-relaxed mb-6">
+                    Document officiel à remplir immédiatement après un accident de la route.
+                    Le constat amiable permet de déclarer l'accident à votre assurance et facilite
+                    la procédure d'indemnisation selon la Loi Badinter.
+                  </p>
+                  <div className="space-y-3 mb-6 text-left">
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-0.5" />
+                      <p className="text-sm text-gray-700">
+                        <strong>À remplir sur place</strong> : signatures des deux parties nécessaires
+                      </p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-0.5" />
+                      <p className="text-sm text-gray-700">
+                        <strong>Délai légal</strong> : déclaration à l'assurance dans les 5 jours ouvrés
+                      </p>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <CheckCircle size={20} className="text-green-600 flex-shrink-0 mt-0.5" />
+                      <p className="text-sm text-gray-700">
+                        <strong>Document gratuit</strong> : également disponible auprès de votre assureur
+                      </p>
+                    </div>
+                  </div>
+                  <a
+                    href="https://qncljsxdjefkimfxdzuf.supabase.co/storage/v1/object/public/images/Constat_Amiable.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-3 bg-or hover:bg-yellow-600 text-noir px-8 py-4 rounded-sm font-semibold transition-colors shadow-md hover:shadow-lg"
+                  >
+                    <Download size={24} />
+                    Télécharger le constat amiable (PDF)
+                  </a>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-8 border-t border-gray-200">
+                <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                  <div className="flex items-start space-x-3">
+                    <Clock size={24} className="text-blue-600 flex-shrink-0 mt-1" />
+                    <div>
+                      <h3 className="font-semibold text-blue-900 mb-2">Conseils après un accident</h3>
+                      <ul className="space-y-2 text-sm text-blue-800">
+                        <li>• Assurez-vous de la sécurité de tous les impliqués</li>
+                        <li>• Prenez des photos de l'accident (véhicules, dégâts, environnement)</li>
+                        <li>• Notez les coordonnées des témoins éventuels</li>
+                        <li>• Ne signez rien d'autre que le constat amiable</li>
+                        <li>• Contactez rapidement un avocat spécialisé en dommage corporel</li>
+                      </ul>
                     </div>
                   </div>
                 </div>
