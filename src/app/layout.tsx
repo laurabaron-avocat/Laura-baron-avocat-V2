@@ -88,8 +88,28 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="https://qncljsxdjefkimfxdzuf.supabase.co/storage/v1/object/public/images/Favicon/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="96x96" href="https://qncljsxdjefkimfxdzuf.supabase.co/storage/v1/object/public/images/Favicon/favicon-96x96.png" />
         <link rel="manifest" href="https://qncljsxdjefkimfxdzuf.supabase.co/storage/v1/object/public/images/Favicon/site.webmanifest" />
+
+        {/* Google Tag Manager */}
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MNB5SPQG');
+          `}
+        </Script>
       </head>
       <body className="antialiased">
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-MNB5SPQG"
+            height="0"
+            width="0"
+            style={{display: 'none', visibility: 'hidden'}}
+          />
+        </noscript>
         {/* Google tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-17771701752"
