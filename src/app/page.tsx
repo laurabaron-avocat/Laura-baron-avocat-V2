@@ -104,7 +104,7 @@ export default async function HomePage() {
                     <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-green-600"></span>
                   </div>
                   <span className="text-noir font-black text-xs md:text-sm uppercase tracking-widest">
-                    Première consultation offerte • Sans engagement
+                    Premier rendez-vous offert • Sans engagement
                   </span>
                 </Link>
 

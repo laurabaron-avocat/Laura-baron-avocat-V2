@@ -105,7 +105,7 @@ export default function AccidentsRoutePage() {
                     Principe fondamental
                   </h3>
                   <p className="text-gray-700 leading-relaxed mb-4">
-                    La <a href="https://www.legifrance.gouv.fr/loda/id/LEGISCTA000006108633" target="_blank" rel="noopener noreferrer" className="text-or hover:text-yellow-600 underline font-semibold">Loi Badinter du 5 juillet 1985</a> instaure un <strong>droit à indemnisation quasi-automatique</strong>
+                    La <a href="https://www.legifrance.gouv.fr/loda/id/LEGISCTA000006108633" target="_blank" rel="noopener noreferrer" className="text-or hover:text-yellow-600 underline font-semibold">Loi Badinter du 5 juillet 1985</a> instaure un <strong>droit à indemnisation quasi-automatique</strong>{" "}
                     pour les victimes d'accidents de la circulation impliquant un véhicule terrestre à moteur.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
@@ -230,8 +230,12 @@ export default function AccidentsRoutePage() {
           <div className="max-w-4xl mx-auto">
             <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
               <div className="flex flex-col md:flex-row items-center gap-8">
-                <div className="bg-or/10 rounded-full p-6 flex-shrink-0">
-                  <FileText size={48} className="text-or" />
+                <div className="flex-shrink-0 w-full md:w-48 shadow-md rounded-lg overflow-hidden border border-gray-100">
+                  <img
+                    src="https://qncljsxdjefkimfxdzuf.supabase.co/storage/v1/object/public/images/image-constat-amiable-france-europeen.webp"
+                    alt="Constat Amiable Européen"
+                    className="w-full h-auto object-cover"
+                  />
                 </div>
                 <div className="flex-1 text-center md:text-left">
                   <h2 className="text-2xl md:text-3xl font-playfair font-bold text-noir mb-4">
