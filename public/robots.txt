@@ -1,0 +1,15 @@
+# robots.txt pour laurabaron-avocat.com
+# Généré automatiquement
+
+User-agent: *
+Allow: /
+
+# Bloquer l'accès à la page d'administration
+Disallow: /admin
+Disallow: /admin/
+
+# Bloquer l'accès aux APIs
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://laurabaron-avocat.com/sitemap.xml
