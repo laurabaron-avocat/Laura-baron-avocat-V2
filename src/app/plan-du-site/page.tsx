@@ -4,6 +4,9 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Plan du Site',
   description: 'Plan du site du Cabinet Laura Baron - Avocat en dommage corporel. Trouvez facilement toutes nos pages et services.',
+  alternates: {
+    canonical: '/plan-du-site',
+  },
   robots: {
     index: true,
     follow: true,

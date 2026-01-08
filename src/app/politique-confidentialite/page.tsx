@@ -5,7 +5,9 @@ import { Shield, Eye, Lock, Users, FileText, AlertTriangle } from 'lucide-react'
 export const metadata: Metadata = {
   title: 'Politique de Confidentialité • Protection des Données | Maître Laura Baron',
   description: 'Politique de confidentialité du cabinet Maître Laura Baron. Traitement des données personnelles conforme au RGPD, droits des utilisateurs et mesures de sécurité.',
-};
+  alternates: {
+    canonical: '/politique-confidentialite',
+  },};
 
 export default function PolitiqueConfidentialitePage() {
   return (

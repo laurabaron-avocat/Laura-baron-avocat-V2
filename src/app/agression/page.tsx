@@ -6,6 +6,9 @@ import WhatsAppButton from '@/components/ui/WhatsAppButton';
 export const metadata: Metadata = {
   title: 'Agression • Indemnisation Victimes d\'Agression • Maître Laura Baron',
   description: 'Expert en indemnisation des victimes d\'agression. Violence physique, psychologique, sexuelle. Accompagnement juridique et obtention de dommages-intérêts.',
+  alternates: {
+    canonical: '/agression',
+  },
   keywords: 'agression, violence, victime, indemnisation, dommages-intérêts, CIVI, plainte, préjudice moral',
 };
 

@@ -6,7 +6,9 @@ import RessourcesContent from '@/components/RessourcesContent';
 export const metadata: Metadata = {
   title: 'Ressources & Guides • Blog Juridique Dommage Corporel',
   description: 'Guides pratiques, fiches notions et actualités juridiques en dommage corporel. Ressources expertes pour comprendre vos droits et l\'indemnisation des victimes.',
-};
+  alternates: {
+    canonical: '/ressources',
+  },};
 
 // Revalidation toutes les 4 heures pour récupérer le nouveau contenu
 export const revalidate = 14400; // 4 heures = 14400 secondes

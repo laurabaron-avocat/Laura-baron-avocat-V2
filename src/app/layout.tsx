@@ -9,6 +9,7 @@ import WebsiteSchema from '@/components/seo/WebsiteSchema';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://laurabaron-avocat.com'),
   title: {
     default: 'Avocat Dommage Corporel Bayonne | Maître Laura Baron • Expert Indemnisation Accident',
     template: '%s | Maître Laura Baron • Avocat Dommage Corporel Bayonne',

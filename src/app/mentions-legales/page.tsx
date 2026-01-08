@@ -5,7 +5,9 @@ import { Scale, MapPin, Phone, Mail, Globe } from 'lucide-react';
 export const metadata: Metadata = {
   title: 'Mentions Légales • Cabinet Maître Laura Baron',
   description: 'Mentions légales du cabinet Maître Laura Baron, avocat en dommage corporel. Informations légales obligatoires et coordonnées professionnelles.',
-};
+  alternates: {
+    canonical: '/mentions-legales',
+  },};
 
 export default function MentionsLegalesPage() {
   return (

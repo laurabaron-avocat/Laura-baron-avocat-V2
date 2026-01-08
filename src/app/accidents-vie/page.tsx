@@ -6,6 +6,9 @@ import WhatsAppButton from '@/components/ui/WhatsAppButton';
 export const metadata: Metadata = {
   title: 'Accidents de la Vie • Indemnisation Accidents Domestiques • Maître Laura Baron',
   description: 'Expert en indemnisation des accidents de la vie courante. Accidents domestiques, de loisirs, scolaires. Expertise juridique et obtention de dommages-intérêts.',
+  alternates: {
+    canonical: '/accidents-vie',
+  },
   keywords: 'accident domestique, accident de loisirs, accident scolaire, vie courante, indemnisation, responsabilité civile',
 };
 

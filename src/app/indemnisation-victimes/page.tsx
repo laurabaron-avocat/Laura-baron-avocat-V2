@@ -9,7 +9,9 @@ import WhatsAppButton from '@/components/ui/WhatsAppButton';
 export const metadata: Metadata = {
   title: 'Indemnisation des Victimes • Processus et Démarches Complètes',
   description: 'Guide complet du processus d\'indemnisation des victimes : de la constitution du dossier à l\'obtention de votre indemnisation. Expertise médicale, évaluation des préjudices.',
-};
+  alternates: {
+    canonical: '/indemnisation-victimes',
+  },};
 
 const processSteps = [
   {

@@ -35,6 +35,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: `${tag.name} | Ressources Juridiques`,
     description: `Articles sur ${tag.name} - Ressources en dommage corporel par Maître Laura Baron`,
+    alternates: {
+      canonical: `/ressources/tag/${params.slug}`,
+    },
   };
 }
 

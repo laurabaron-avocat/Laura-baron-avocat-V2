@@ -7,7 +7,9 @@ import WhatsAppButton from '@/components/ui/WhatsAppButton';
 export const metadata: Metadata = {
   title: 'Contact • Prendre Rendez-vous avec Maître Laura Baron',
   description: 'Contactez Maître Laura Baron, avocat en dommage corporel. Cabinets à Bayonne et Toulouse. Consultation sur rendez-vous, urgences acceptées.',
-};
+  alternates: {
+    canonical: '/contact',
+  },};
 
 export default function ContactPage() {
   const jsonLD = [

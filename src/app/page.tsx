@@ -6,6 +6,13 @@ import FAQ from '@/components/ui/FAQ';
 import ContactForm from '@/components/forms/ContactForm';
 import { getFAQByPage } from '@/lib/queries';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/',
+  },
+};
 
 const processSteps = [
   {

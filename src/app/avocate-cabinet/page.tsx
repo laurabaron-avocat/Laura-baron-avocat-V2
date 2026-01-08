@@ -5,7 +5,9 @@ import WhatsAppButton from '@/components/ui/WhatsAppButton';
 export const metadata: Metadata = {
   title: 'Présentation de Maître Laura Baron • Avocat Dommage Corporel',
   description: 'Découvrez le parcours et l\'expertise de Maître Laura Baron, avocat en dommage corporel. Inscrite au Barreau de Bayonne depuis 2013.',
-};
+  alternates: {
+    canonical: '/avocate-cabinet',
+  },};
 
 export default function AvocateCabinetPage() {
   const jsonLD = [

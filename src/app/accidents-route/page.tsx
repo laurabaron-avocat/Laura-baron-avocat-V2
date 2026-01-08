@@ -6,7 +6,9 @@ import WhatsAppButton from '@/components/ui/WhatsAppButton';
 export const metadata: Metadata = {
   title: 'Accidents de la Route • Loi Badinter • Constat Amiable PDF • Avocat Spécialisé',
   description: 'Avocat expert en accidents de la route : indemnisation Loi Badinter 1985, téléchargement gratuit constat amiable PDF, protection piétons, cyclistes, passagers. Expertise juridique complète en dommage corporel.',
-};
+  alternates: {
+    canonical: '/accidents-route',
+  },};
 
 export default function AccidentsRoutePage() {
   const jsonLD = {
