@@ -4,7 +4,7 @@ export default function OrganizationSchema() {
     "@type": "LegalService",
     "name": "Cabinet Laura Baron - Avocat Dommage Corporel Bayonne",
     "alternateName": "Maître Laura Baron",
-    "description": "Avocat et avocate expert en dommage corporel à Bayonne, Pays Basque. Cabinet spécialisé indemnisation victimes : accidents de la route, médicaux, agressions. +10 ans d'expérience.",
+    "description": "Avocate en dommage corporel à Bayonne, Maître Laura Baron défend les victimes d’accidents de la route, d’agressions et d’erreurs médicales en Nouvelle-Aquitaine.",
     "url": "https://laurabaron-avocat.com",
     "logo": {
       "@type": "ImageObject",
@@ -21,6 +21,8 @@ export default function OrganizationSchema() {
       "caption": "Cabinet Laura Baron - Avocat Dommage Corporel"
     },
     "foundingDate": "2020",
+    "datePublished": "2025-01-15",
+    "dateModified": "2026-01-15",
     "founder": {
       "@type": "Person",
       "name": "Laura Baron",
@@ -75,16 +77,23 @@ export default function OrganizationSchema() {
       "Avocat dommage corporel Bayonne",
       "Avocate dommage corporel Bayonne",
       "Expert indemnisation victimes Bayonne",
+      "Avocat dommage corporel Nouvelle-Aquitaine",
       "Cabinet avocat accident Bayonne",
       "Avocat Loi Badinter Bayonne",
       "Avocat accident route Bayonne",
+      "Avocat accident de la vie Bayonne",
       "Avocat préjudice corporel Bayonne",
       "Avocat accident médical Bayonne",
+      "Avocat agression Bayonne",
       "Avocat agressions CIVI Bayonne",
-      "Indemnisation victimes Pays Basque"
+      "Indemnisation victimes Pays Basque",
+      "Indemnisation victimes Nouvelle-Aquitaine"
     ],
     "knowsAbout": [
+      "Dommage corporel",
       "Loi Badinter",
+      "Accidents de la vie",
+      "Agressions",
       "Expertise médicale",
       "CIVI",
       "CCI",

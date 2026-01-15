@@ -22,7 +22,7 @@ export default async function DommageCorporelPage() {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: 'Dommage Corporel • Expertise en Indemnisation des Victimes',
-    description: 'Guide complet sur le dommage corporel : accidents de la route, médicaux, agressions, accidents de la vie. Expertise juridique en indemnisation.',
+    description: 'Guide complet sur le dommage corporel : accidents de la route, médicaux, agressions, accidents de la vie, attentats. Expertise juridique en indemnisation.',
     author: {
       '@type': 'Person',
       name: 'Maître Laura Baron',
@@ -275,6 +275,57 @@ export default async function DommageCorporelPage() {
                 <div className="mt-6 pt-4 border-t border-gray-200">
                   <Link
                     href="/accidents-vie"
+                    className="inline-flex items-center text-or hover:text-yellow-600 font-medium transition-colors"
+                  >
+                    En savoir plus
+                    <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Attentats */}
+            <div className="card p-8" id="attentats">
+              <div className="flex items-start space-x-4 mb-6">
+                <Users size={40} className="text-or flex-shrink-0" />
+                <div>
+                  <h3 className="text-2xl font-playfair font-semibold text-anthracite mb-2">
+                    Attentats
+                  </h3>
+                  <p className="text-gray-600">Victimes directes et proches • FGTI</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <p className="text-gray-700 leading-relaxed">
+                  Les victimes d'attentats bénéficient d'une indemnisation spécifique via le Fonds de Garantie des
+                  Victimes. Un accompagnement rigoureux permet de faire reconnaître l'ensemble des préjudices.
+                </p>
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-anthracite">Prise en charge :</h4>
+                  <ul className="space-y-1 text-sm text-gray-700">
+                    <li className="flex items-center">
+                      <CheckCircle size={16} className="text-green-600 mr-2" />
+                      Victimes directes, proches et témoins traumatisés
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle size={16} className="text-green-600 mr-2" />
+                      Préjudices corporels, psychologiques et économiques
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle size={16} className="text-green-600 mr-2" />
+                      Expertise médicale et évaluation complète
+                    </li>
+                    <li className="flex items-center">
+                      <CheckCircle size={16} className="text-green-600 mr-2" />
+                      Suivi des échanges avec le FGTI
+                    </li>
+                  </ul>
+                </div>
+                <div className="mt-6 pt-4 border-t border-gray-200">
+                  <Link
+                    href="/attentats"
                     className="inline-flex items-center text-or hover:text-yellow-600 font-medium transition-colors"
                   >
                     En savoir plus

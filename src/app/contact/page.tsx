@@ -301,7 +301,7 @@ export default function ContactPage() {
                   Apportez tous les documents en votre possession.
                 </p>
                 <p className="text-blue-700 font-medium text-sm">
-                  💡 Consultation remboursée en cas de mandatement
+                  💡 Première consultation gratuite
                 </p>
               </div>
               

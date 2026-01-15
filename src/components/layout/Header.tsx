@@ -54,6 +54,7 @@ export default function Header() {
         { name: 'Accidents médicaux', href: '/accidents-medicaux' },
         { name: 'Agression', href: '/agression' },
         { name: 'Accidents de la vie', href: '/accidents-vie' },
+        { name: 'Attentats', href: '/attentats' },
       ]
     },
     { name: 'Indemnisation', href: '/indemnisation-victimes' },

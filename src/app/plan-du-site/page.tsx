@@ -31,6 +31,7 @@ export default function PlanDuSite() {
         { name: 'Accidents Médicaux', href: '/accidents-medicaux', description: 'CCI et ONIAM' },
         { name: 'Agressions', href: '/agression', description: 'Indemnisation CIVI' },
         { name: 'Accidents de la Vie', href: '/accidents-vie', description: 'Accidents du quotidien' },
+        { name: 'Attentats', href: '/attentats', description: 'Indemnisation des victimes d\'attentat' },
         { name: 'Indemnisation Victimes', href: '/indemnisation-victimes', description: 'Expertise médicale et calcul des préjudices' },
       ]
     },

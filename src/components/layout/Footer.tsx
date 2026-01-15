@@ -17,10 +17,18 @@ export default function Footer() {
               <h3 className="text-base md:text-lg font-semibold leading-tight">Cabinet Laura Baron</h3>
             </div>
             <p className="text-anthracite text-xs md:text-sm mb-3 md:mb-4 leading-relaxed">
-              Avocat et avocate expert en dommage corporel à Bayonne. Indemnisation victimes accidents : route, médicaux, agressions. Cabinet au Pays Basque.
+              Avocate experte en dommage corporel à Bayonne, Maître Laura Baron accompagne les victimes d'accidents de
+              la route, d'erreurs médicales et d'agressions pour obtenir une indemnisation complète. Cabinet à Bayonne.
             </p>
             <div className="flex items-center space-x-2 text-xs md:text-sm text-anthracite">
-              <span>Barreau de Bayonne</span>
+              <a
+                href="https://www.avocats-bayonne.org/cb-profile/1646-laurabaron.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-or transition-colors"
+              >
+                Avocat inscrite au Barreau de bayonne
+              </a>
             </div>
           </div>
 
