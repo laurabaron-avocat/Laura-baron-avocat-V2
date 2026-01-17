@@ -81,6 +81,10 @@ export default async function ArticlePage({ params }: PageProps) {
     notFound();
   }
 
+  // Récupérer les 4 derniers articles pour en afficher 3 (en excluant l'article actuel)
+  const allPosts = await getPosts(4);
+  const relatedPosts = allPosts.filter(p => p.slug !== params.slug).slice(0, 3);
+
   const jsonLD = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -296,6 +300,104 @@ export default async function ArticlePage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {/* Articles recommandés */}
+      {relatedPosts.length > 0 && (
+        <section className="section-padding bg-gradient-to-br from-gray-50 to-beige/30">
+          <div className="container-custom">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-playfair font-bold text-noir mb-4">
+                Continuer votre lecture
+              </h2>
+              <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+                Découvrez d'autres ressources juridiques pour mieux comprendre vos droits
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {relatedPosts.map((article) => (
+                <Link
+                  key={article.slug}
+                  href={`/ressources/${article.slug}`}
+                  className="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-or/30 flex flex-col"
+                >
+                  {/* Image de couverture */}
+                  {article.cover_url && (
+                    <div className="relative h-48 overflow-hidden bg-gray-100">
+                      <img
+                        src={article.cover_url}
+                        alt={article.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-noir/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                  )}
+
+                  {/* Contenu de la carte */}
+                  <div className="p-6 flex flex-col flex-grow">
+                    {/* Tags */}
+                    {article.post_tags && article.post_tags.length > 0 && (
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {article.post_tags.slice(0, 2).map((postTag: any) => (
+                          <span
+                            key={postTag.tags.id}
+                            className="inline-flex items-center px-2 py-1 bg-or/10 text-xs font-medium text-anthracite rounded-full"
+                          >
+                            <Tag size={10} className="mr-1 text-or" />
+                            {postTag.tags.name}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Titre */}
+                    <h3 className="text-xl font-playfair font-semibold text-noir mb-3 group-hover:text-or transition-colors line-clamp-2">
+                      {article.title}
+                    </h3>
+
+                    {/* Excerpt */}
+                    <p className="text-sm text-gray-600 mb-4 line-clamp-3 flex-grow">
+                      {article.excerpt}
+                    </p>
+
+                    {/* Footer de la carte */}
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                      <div className="flex items-center text-xs text-gray-500">
+                        <Calendar size={14} className="mr-1 text-or" />
+                        <span>
+                          {article.published_at
+                            ? new Date(article.published_at).toLocaleDateString('fr-FR', {
+                                year: 'numeric',
+                                month: 'short',
+                                day: 'numeric',
+                              })
+                            : 'Récent'
+                          }
+                        </span>
+                      </div>
+                      <div className="flex items-center text-or font-medium text-sm group-hover:translate-x-1 transition-transform">
+                        Lire l'article
+                        <ArrowRight size={16} className="ml-1" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            {/* CTA vers toutes les ressources */}
+            <div className="text-center mt-12">
+              <Link
+                href="/ressources"
+                className="inline-flex items-center px-8 py-3 bg-white border-2 border-or text-or hover:bg-or hover:text-noir font-semibold rounded-sm transition-all duration-300 shadow-sm hover:shadow-md"
+              >
+                Voir toutes les ressources
+                <ArrowRight size={18} className="ml-2" />
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="section-padding bg-beige">
