@@ -62,7 +62,21 @@ export default async function HomePage() {
       '@type': 'GeoCircle',
       name: 'Bayonne, Pays Basque, Nouvelle-Aquitaine',
     },
-    areaServed: ['Bayonne', 'Anglet', 'Biarritz', 'Pays Basque', 'Nouvelle-Aquitaine'],
+    areaServed: [
+      'Bayonne',
+      'Anglet',
+      'Biarritz',
+      'Saint-Jean-de-Luz',
+      'Hendaye',
+      'Urrugne',
+      'Tarnos',
+      'Pau',
+      'Dax',
+      'Mont-de-Marsan',
+      'Bordeaux',
+      'Toulouse',
+      'Nouvelle-Aquitaine',
+    ],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Services juridiques',
@@ -115,17 +129,19 @@ export default async function HomePage() {
                   </span>
                 </Link>
 
-                {/* Version Mobile du titre */}
-                <h1 className="md:hidden text-3xl font-playfair font-bold text-center mb-6 hero-claim leading-tight">
-                  <span className="block text-noir mb-3 text-4xl">Avocat Dommage Corporel</span>
-                  <span className="block text-anthracite text-2xl mb-3">à Bayonne</span>
-                  <span className="block text-or text-3xl font-semibold bg-gradient-to-r from-or to-yellow-600 bg-clip-text text-transparent">Expert Indemnisation Accident</span>
-                </h1>
-
-                {/* Version Desktop du titre */}
-                <h1 className="hidden md:block mobile-title font-playfair font-bold text-noir mb-4 md:mb-6 hero-claim leading-tight">
-                  Avocat Dommage Corporel à Bayonne
-                  <span className="text-or block mt-2">Expert en Indemnisation des Victimes d'Accident</span>
+                {/* Titre principal */}
+                <h1 className="font-playfair font-bold hero-claim leading-tight">
+                  <span className="md:hidden text-3xl text-center block mb-6">
+                    <span className="block text-noir mb-3 text-4xl">Avocat Dommage Corporel</span>
+                    <span className="block text-anthracite text-2xl mb-3">à Bayonne</span>
+                    <span className="block text-or text-3xl font-semibold bg-gradient-to-r from-or to-yellow-600 bg-clip-text text-transparent">
+                      Expert Indemnisation Accident
+                    </span>
+                  </span>
+                  <span className="hidden md:block mobile-title text-noir mb-4 md:mb-6">
+                    Avocat Dommage Corporel à Bayonne
+                    <span className="text-or block mt-2">Expert en Indemnisation des Victimes d'Accident</span>
+                  </span>
                 </h1>
                 <p className="mobile-subtitle text-anthracite mb-6 md:mb-10 leading-relaxed max-w-xl">
                   <strong>Avocate en dommage corporel à Bayonne</strong> : indemnisation des victimes d'accidents de la route, accidents médicaux, agressions. Plus de 10 ans d'expérience au Pays Basque pour obtenir la meilleure réparation de vos préjudices.
@@ -156,9 +172,9 @@ export default async function HomePage() {
                 className="w-full h-80 md:h-[600px] object-contain md:object-cover rounded-lg shadow-2xl md:object-[center_10%] hover:scale-[1.01] transition-transform duration-500"
               />
               <div className="mt-6">
-                <h3 className="text-xl md:text-2xl font-playfair font-bold text-noir">
+                <h2 className="text-xl md:text-2xl font-playfair font-bold text-noir">
                   Maître Laura Baron
-                </h3>
+                </h2>
                 <p className="text-base text-anthracite font-medium">
                   Avocate au Barreau de Bayonne
                 </p>

@@ -71,7 +71,7 @@ export default function OrganizationSchema() {
         "longitude": -1.4748
       },
       "geoRadius": "50000",
-      "name": "Bayonne, Anglet, Biarritz, Pays Basque, Nouvelle-Aquitaine"
+      "name": "Bayonne, Anglet, Biarritz, Saint-Jean-de-Luz, Hendaye, Urrugne, Tarnos, Pau, Dax, Mont-de-Marsan, Bordeaux, Toulouse, Nouvelle-Aquitaine"
     },
     "serviceType": [
       "Avocat dommage corporel Bayonne",
